@@ -1,0 +1,43 @@
+---
+import FieldMotif from "./FieldMotif.astro";
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  index?: string;
+  narrow?: boolean;
+}
+
+const { eyebrow, title, lead, index = "FIELD / 01", narrow = false } = Astro.props;
+---
+
+<section class:list={["page-hero section--dark", { narrow }]}>
+  <FieldMotif variant="grid" />
+  <div class="hero-contours"><FieldMotif variant="contours" /></div>
+  <div class="shell page-hero__inner">
+    <div class="page-hero__copy">
+      <p class="eyebrow eyebrow--light"><span>{index}</span> {eyebrow}</p>
+      <h1>{title}</h1>
+      <p class="lead">{lead}</p>
+      <slot name="actions" />
+    </div>
+    <slot name="aside" />
+  </div>
+</section>
+
+<style>
+  .page-hero { position: relative; overflow: hidden; padding-block: clamp(5rem, 10vw, 8.5rem); }
+  .page-hero > :global(.field-motif--grid) { position: absolute; inset: 0; color: var(--paper); }
+  .hero-contours { position: absolute; top: -5rem; right: -8rem; width: min(52vw, 43rem); height: 37rem; color: var(--sage); opacity: 0.11; transform: rotate(-8deg); }
+  .page-hero__inner { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.4fr); align-items: end; gap: clamp(3rem, 8vw, 8rem); }
+  .page-hero__copy { max-width: 56rem; }
+  .page-hero h1 { max-width: 13ch; margin: 0; color: var(--paper-light); font-size: clamp(3.2rem, 7.6vw, 7rem); line-height: 0.91; letter-spacing: -0.045em; text-wrap: balance; }
+  .page-hero .lead { max-width: 43rem; margin: 1.75rem 0 0; color: color-mix(in srgb, var(--paper) 82%, transparent); font-size: clamp(1.08rem, 1rem + 0.4vw, 1.35rem); }
+  .page-hero.narrow .page-hero__inner { grid-template-columns: 1fr; }
+  .page-hero.narrow .page-hero__copy { max-width: 49rem; }
+  @media (max-width: 48rem) {
+    .page-hero__inner { grid-template-columns: 1fr; }
+    .hero-contours { right: -12rem; width: 40rem; opacity: 0.08; }
+  }
+</style>

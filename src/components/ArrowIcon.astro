@@ -1,0 +1,18 @@
+---
+interface Props { external?: boolean; }
+const { external = false } = Astro.props;
+---
+
+<span class:list={["arrow-icon", { external }]} aria-hidden="true">
+  <span></span>
+</span>
+
+<style>
+  .arrow-icon { position: relative; display: inline-block; width: 1.15rem; height: 1.15rem; flex: 0 0 auto; }
+  .arrow-icon span::before,
+  .arrow-icon span::after { position: absolute; content: ""; }
+  .arrow-icon span::before { inset: 0.55rem 0.1rem auto 0.05rem; height: 1.5px; background: currentColor; }
+  .arrow-icon span::after { top: 0.3rem; right: 0.08rem; width: 0.45rem; height: 0.45rem; border-top: 1.5px solid currentColor; border-right: 1.5px solid currentColor; transform: rotate(45deg); }
+  .external span::before { inset: 0.57rem 0.12rem auto 0.18rem; transform: rotate(-45deg); transform-origin: right; }
+  .external span::after { top: 0.12rem; right: 0.08rem; transform: none; }
+</style>

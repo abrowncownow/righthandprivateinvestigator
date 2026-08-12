@@ -1,0 +1,43 @@
+---
+import type { Service } from "@/data/services";
+import ArrowIcon from "./ArrowIcon.astro";
+import { pathFor } from "@/utils/urls";
+
+interface Props {
+  service: Service;
+  compact?: boolean;
+}
+
+const { service, compact = false } = Astro.props;
+---
+
+<article class:list={["service-card", { compact }]}>
+  <div class="service-card__meta">
+    <span>{service.audiences.join(" / ")}</span>
+  </div>
+  <h3>{service.title}</h3>
+  <p>{compact ? service.summary : service.detail}</p>
+  {compact && (
+    <a class="text-link" href={pathFor(`/services/#${service.slug}`)} aria-label={`Learn about ${service.title}`}>
+      Review capability <ArrowIcon />
+    </a>
+  )}
+  {!compact && (
+    <div class="service-card__details">
+      <p><strong>Typical outputs</strong>{service.outputs}</p>
+      <p><strong>Boundary</strong>{service.boundary}</p>
+    </div>
+  )}
+</article>
+
+<style>
+  .service-card { position: relative; display: flex; min-height: 100%; flex-direction: column; padding: clamp(1.5rem, 3vw, 2.25rem); border-top: 1px solid var(--line-strong); background: var(--paper-light); }
+  .service-card::before { position: absolute; top: -2px; left: 0; width: 2.75rem; height: 3px; content: ""; background: var(--copper); }
+  .service-card__meta { color: var(--copper-dark); font-size: 0.67rem; font-weight: 800; letter-spacing: 0.11em; text-transform: uppercase; }
+  .service-card h3 { margin: 1.4rem 0 0; font-size: clamp(1.55rem, 2.3vw, 2.1rem); }
+  .service-card > p { margin: 0.85rem 0 0; color: var(--ink-muted); }
+  .service-card .text-link { margin-top: auto; padding-top: 2rem; }
+  .service-card__details { display: grid; gap: 1rem; margin-top: 2rem; padding-top: 1.35rem; border-top: 1px solid var(--line); }
+  .service-card__details p { margin: 0; color: var(--ink-muted); font-size: 0.9rem; }
+  .service-card__details strong { display: block; margin-bottom: 0.3rem; color: var(--ink); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; }
+</style>

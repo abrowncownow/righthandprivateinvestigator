@@ -1,0 +1,29 @@
+---
+import ArrowIcon from "@/components/ArrowIcon.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import PageHero from "@/components/PageHero.astro";
+import { siteConfig } from "@/data/site";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { pathFor } from "@/utils/urls";
+---
+
+<BaseLayout
+  title="Inquiry Received | Right Hand Private Investigator"
+  description="Your high-level inquiry has been sent to Right Hand Private Investigator."
+  noindex
+>
+  <Breadcrumbs current="Inquiry received" />
+  <PageHero
+    eyebrow="Inquiry received"
+    title="Your inquiry has been sent."
+    lead="Submission does not create a client relationship. Please do not send sensitive material unless Right Hand accepts the matter and provides specific instructions."
+    index="FIELD / RCV"
+    narrow
+  >
+    <div slot="actions" class="button-row">
+      <a class="button button--paper" href={pathFor("/")}>Return home <ArrowIcon /></a>
+      <a class="button button--outline-light" href={`tel:${siteConfig.phoneHref}`}>Call {siteConfig.phoneDisplay} <ArrowIcon /></a>
+    </div>
+  </PageHero>
+
+</BaseLayout>

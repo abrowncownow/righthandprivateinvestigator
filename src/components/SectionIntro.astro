@@ -1,0 +1,26 @@
+---
+interface Props {
+  index?: string;
+  eyebrow?: string;
+  title: string;
+  copy?: string;
+  light?: boolean;
+}
+
+const { index, eyebrow, title, copy, light = false } = Astro.props;
+---
+
+<header class:list={["section-intro", { light }]}>
+  {(index || eyebrow) && <p class="eyebrow"><span>{index}</span>{eyebrow}</p>}
+  <h2>{title}</h2>
+  {copy && <p>{copy}</p>}
+</header>
+
+<style>
+  .section-intro { max-width: 51rem; }
+  .section-intro h2 { margin: 0; color: var(--ink); }
+  .section-intro > p:last-child { max-width: 43rem; margin: 1.4rem 0 0; color: var(--ink-muted); font-size: 1.08rem; }
+  .section-intro.light .eyebrow { color: var(--copper-light); }
+  .section-intro.light h2 { color: var(--paper-light); }
+  .section-intro.light > p:last-child { color: color-mix(in srgb, var(--paper) 76%, transparent); }
+</style>

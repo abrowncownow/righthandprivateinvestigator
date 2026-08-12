@@ -1,0 +1,96 @@
+---
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import PageHero from "@/components/PageHero.astro";
+import { effectiveDate, siteConfig } from "@/data/site";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Terms of Use | Right Hand Private Investigator"
+  description="Review the terms that apply when using the Right Hand Private Investigator website."
+>
+  <Breadcrumbs current="Terms" />
+  <PageHero
+    eyebrow="Terms of use"
+    title="Clear terms. Clear boundaries."
+    lead="These terms govern use of this website. They do not replace the written scope and conditions of an accepted investigative assignment."
+    index="FIELD / TRM"
+    narrow
+  />
+
+  <section class="section section--light legal-section">
+    <div class="shell legal-grid">
+      <aside aria-label="Terms details">
+        <span>TERMS / 01</span>
+        <strong>Effective {effectiveDate}</strong>
+        <p>By using this site, you agree to these terms.</p>
+      </aside>
+
+      <article class="prose">
+        <h2>General information only</h2>
+        <p>
+          This website provides general information about Right Hand Private Investigator and potential services. It is not legal advice, an investigative conclusion, or a recommendation about a particular matter.
+        </p>
+
+        <h2>No client relationship</h2>
+        <p>
+          Visiting this site, calling, emailing, or submitting a form does not create a client relationship. An engagement begins only when Right Hand accepts the matter in writing and any required agreement and payment arrangements are completed.
+        </p>
+        <p>Do not send sensitive or confidential material before acceptance and specific delivery instructions. An unsolicited communication may not be privileged.</p>
+
+        <h2>Service availability</h2>
+        <p>
+          Services depend on the assignment’s purpose, location, timing, legal requirements, safety considerations, conflicts, and available resources. Right Hand may decline a request. No content on this site represents authorization to operate in every jurisdiction.
+        </p>
+
+        <h2>No guaranteed result</h2>
+        <p>
+          Investigative work cannot guarantee that a person will be found, an event will occur, evidence will be obtained, a concern will be confirmed, or a particular legal or business outcome will follow. Findings may be incomplete, inconclusive, or different from a client’s initial expectation.
+        </p>
+
+        <h2>Lawful use</h2>
+        <p>
+          You may not use this website or request services to harass, stalk, intimidate, discriminate against, harm, unlawfully monitor, access protected information about, or evade legal process involving another person. Right Hand may request information needed to evaluate purpose and may decline or end work that presents a legal, ethical, or safety concern.
+        </p>
+
+        <h2>Professional advice</h2>
+        <p>
+          Clients remain responsible for decisions based on investigative findings. Consult a qualified attorney, insurance professional, HR adviser, mental-health professional, or other appropriate adviser when a matter requires professional interpretation.
+        </p>
+
+        <h2>Third-party websites</h2>
+        <p>
+          Links to third-party websites are provided for convenience. Right Hand Private Investigator and Right Hand Professional Process Service are separate service offerings, and an engagement with one does not automatically create an engagement with the other.
+        </p>
+
+        <h2>Accuracy and changes</h2>
+        <p>
+          Right Hand aims to keep site information current but does not guarantee that every page is complete or error-free. Services, availability, policies, and these terms may change. The effective date above identifies the current version.
+        </p>
+
+        <h2>Emergencies</h2>
+        <p>
+          This website and its contact channels are not emergency services and may not be monitored continuously. Call 911 if someone is in immediate danger.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          Questions about these terms may be sent to the contact information published on this website. Do not include sensitive case details in the initial message.
+        </p>
+        <p><a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a> · <a href={`tel:${siteConfig.phoneHref}`}>{siteConfig.phoneDisplay}</a></p>
+      </article>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-grid { display: grid; grid-template-columns: 0.32fr minmax(0, 1fr); align-items: start; gap: clamp(3rem, 9vw, 9rem); }
+  aside { position: sticky; top: 7rem; padding: 1.4rem 0 1.4rem 1.4rem; border-left: 2px solid var(--copper); }
+  aside span { display: block; color: var(--copper-dark); font-size: 0.65rem; font-weight: 800; letter-spacing: 0.12em; }
+  aside strong { display: block; margin-top: 0.75rem; font-family: var(--font-display); font-size: 1.35rem; font-weight: 550; }
+  aside p { margin-bottom: 0; color: var(--ink-muted); font-size: 0.76rem; }
+  .prose { max-width: 52rem; }
+  .prose > :first-child { margin-top: 0; }
+  .prose a { color: var(--copper-dark); font-weight: 700; overflow-wrap: anywhere; }
+  @media (max-width: 48rem) { .legal-grid { grid-template-columns: 1fr; } aside { position: static; } }
+</style>

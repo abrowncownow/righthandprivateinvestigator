@@ -1,0 +1,268 @@
+---
+import ArrowIcon from "@/components/ArrowIcon.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import FaqList from "@/components/FaqList.astro";
+import FieldMotif from "@/components/FieldMotif.astro";
+import SectionIntro from "@/components/SectionIntro.astro";
+import ServiceCard from "@/components/ServiceCard.astro";
+import { publishedServices } from "@/data/services";
+import { siteConfig } from "@/data/site";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { pathFor } from "@/utils/urls";
+
+const homeServices = publishedServices.slice(0, 6);
+const homeFaqs = [
+  {
+    question: "What types of matters do you consider?",
+    answer: "Right Hand considers organizational and individual assignments involving lawful surveillance, field documentation, workplace or claims fact-gathering, locates, public-record research, witness or scene inquiries, litigation support, and sensitive family or relationship matters. Availability depends on the location, purpose, and specific scope."
+  },
+  {
+    question: "Can you guarantee an answer or outcome?",
+    answer: "No. An investigation may confirm a concern, contradict it, add context, or remain inconclusive. We explain practical limitations before work begins and report only what the available facts support."
+  },
+  {
+    question: "Will my inquiry be confidential?",
+    answer: "We handle inquiries with discretion, but a website inquiry is not automatically privileged and does not create a client relationship. Do not send sensitive material until the matter has been accepted and a delivery method has been agreed."
+  },
+  {
+    question: "Can you investigate anyone for any reason?",
+    answer: "No. Every request must have a lawful, permissible purpose. Right Hand may ask about your identity, relationship to the matter, and intended use of the information, and may decline requests involving harassment, coercion, unlawful tracking, account access, or another improper purpose."
+  },
+  {
+    question: "Are you licensed and insured?",
+    answer: "Requirements vary by jurisdiction and assignment. Right Hand will confirm applicable requirements before accepting work and provide verified business or credential information relevant to an engagement. This website does not claim blanket authorization in every Idaho jurisdiction."
+  },
+  {
+    question: "Do you provide process service?",
+    answer: "Private investigations and process service are separate engagements. For service of legal documents, visit Right Hand Professional Process Service through the link on this site."
+  }
+];
+---
+
+<BaseLayout
+  title="Right Hand Private Investigator | Idaho"
+  description="Private investigative support for Idaho organizations and individuals, with carefully scoped fieldwork, direct communication, and clear reporting."
+>
+  <section class="home-hero section--dark">
+    <FieldMotif variant="grid" />
+    <div class="home-hero__contours"><FieldMotif variant="contours" /></div>
+    <div class="shell home-hero__inner">
+      <div class="home-hero__copy">
+        <p class="eyebrow eyebrow--light"><span>FIELD / 01</span> Private investigative support • Idaho</p>
+        <h1>When the facts matter, put it in the <em>Right Hands.</em></h1>
+        <p class="home-hero__lead">Carefully scoped investigative support for organizations and individuals who need lawful fact-gathering, direct communication, and clear documentation.</p>
+        <div class="button-row">
+          <a class="button button--paper" href={pathFor("/contact/")}>Discuss an assignment <ArrowIcon /></a>
+          <a class="button button--outline-light" href={pathFor("/services/")}>Explore services <ArrowIcon /></a>
+        </div>
+        <p class="hero-trust">Clear scope <i></i> Lawful methods <i></i> Useful reporting</p>
+      </div>
+      <aside class="assignment-index" aria-label="Assignment pathways">
+        <p class="assignment-index__label">Assignment index</p>
+        <a href={pathFor("/organizations/")}><span>01</span> Organizations <ArrowIcon /></a>
+        <a href={pathFor("/individuals/")}><span>02</span> Individuals <ArrowIcon /></a>
+        <a href={pathFor("/services/")}><span>03</span> Capabilities <ArrowIcon /></a>
+        <div class="assignment-index__note">
+          <span aria-hidden="true"></span>
+          <p>Idaho-focused work.<br />Jurisdiction confirmed per assignment.</p>
+        </div>
+      </aside>
+    </div>
+    <div class="shell process-ribbon">
+      <a href={siteConfig.processServiceUrl} target="_blank" rel="noopener noreferrer">
+        <span>Need documents served?</span> Process service is handled separately by Right Hand Professional Process Service. <ArrowIcon external />
+      </a>
+    </div>
+  </section>
+
+  <section class="section section--paper pathways-section">
+    <div class="shell">
+      <SectionIntro index="02" eyebrow="Choose a path" title="Start with what you need to decide." copy="Every matter begins with a question. We define the objective, identify practical limits, and recommend a proportionate path before work begins." />
+      <div class="pathway-grid">
+        <a class="pathway-card pathway-card--organizations" href={pathFor("/organizations/")}>
+          <span class="pathway-number">01 / ORGANIZATIONS</span>
+          <div>
+            <h3>For teams whose next move has to hold up.</h3>
+            <p>Investigative support for legal teams, claims professionals, employers, and public organizations—with defined questions, agreed deliverables, and direct reporting.</p>
+          </div>
+          <span class="pathway-link">Services for organizations <ArrowIcon /></span>
+        </a>
+        <a class="pathway-card pathway-card--individuals" href={pathFor("/individuals/")}>
+          <span class="pathway-number">02 / INDIVIDUALS</span>
+          <div>
+            <h3>For personal questions that need a careful plan.</h3>
+            <p>Straightforward help with relationship concerns, family matters, locates, and personal due diligence. You do not need to know investigative terminology.</p>
+          </div>
+          <span class="pathway-link">Help for individuals <ArrowIcon /></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--light">
+    <div class="shell">
+      <div class="services-heading">
+        <SectionIntro index="03" eyebrow="Capabilities" title="Focused work, matched to the question." copy="Not every matter needs every tool. Work is selected for the objective, location, lawful purpose, and reporting need." />
+        <a class="text-link" href={pathFor("/services/")}>View all services <ArrowIcon /></a>
+      </div>
+      <div class="card-grid">
+        {homeServices.map((service) => <ServiceCard service={service} compact />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section process-section section--dark">
+    <div class="shell">
+      <SectionIntro light index="04" eyebrow="The work" title="A clear path from question to findings." copy="Useful work begins with realistic objectives, explicit boundaries, and a shared understanding of what the assignment can establish." />
+      <ol class="process-steps">
+        <li>
+          <span>01</span>
+          <h3>Start with the question</h3>
+          <p>Share the goal, general location, timing, and deadline. Keep the first conversation high level.</p>
+        </li>
+        <li>
+          <span>02</span>
+          <h3>Define the scope</h3>
+          <p>We assess fit, jurisdiction, lawful options, practical limits, and likely costs before accepting work.</p>
+        </li>
+        <li>
+          <span>03</span>
+          <h3>Conduct the agreed work</h3>
+          <p>Work follows the written scope, with communication about material developments when appropriate.</p>
+        </li>
+        <li>
+          <span>04</span>
+          <h3>Receive the findings</h3>
+          <p>Deliverables may include a factual summary, notes, cited records, photographs, or video when relevant and lawful.</p>
+        </li>
+      </ol>
+      <p class="process-note">No investigation can guarantee a particular fact, event, or outcome.</p>
+    </div>
+  </section>
+
+  <section class="section section--paper why-section">
+    <div class="shell why-grid">
+      <div>
+        <p class="eyebrow"><span>05</span> The Right Hand approach</p>
+        <h2>Facts without the theater.</h2>
+        <p class="why-lead">Professional investigation is not about costumes, clichés, or dramatic promises. It is disciplined fieldwork, sound judgment, clear boundaries, and information delivered in a form you can use.</p>
+        <a class="text-link" href={pathFor("/about/")}>About Right Hand <ArrowIcon /></a>
+      </div>
+      <ul class="approach-list">
+        <li><span>01</span><strong>Purpose before activity</strong><small>Begin with the decision or question.</small></li>
+        <li><span>02</span><strong>Proportionate methods</strong><small>Choose work that fits the objective.</small></li>
+        <li><span>03</span><strong>Direct communication</strong><small>Raise material developments without hype.</small></li>
+        <li><span>04</span><strong>Factual documentation</strong><small>Separate observation, source, and unknown.</small></li>
+        <li><span>05</span><strong>Respect for boundaries</strong><small>Review purpose, jurisdiction, and safety.</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--sage vendor-section">
+    <div class="shell vendor-grid">
+      <div class="vendor-index" aria-hidden="true"><span>V</span><small>VENDOR / READINESS</small></div>
+      <div>
+        <p class="eyebrow"><span>06</span> Organizational onboarding</p>
+        <h2>Have a defined assignment or vendor requirement?</h2>
+        <p>Send the business question, general location, desired timing, deliverables, and onboarding requirements. Right Hand will confirm fit and provide only current, applicable business information.</p>
+        <div class="button-row">
+          <a class="button" href={pathFor("/organizations/#public-organizations")}>Review vendor approach <ArrowIcon /></a>
+          <a class="text-link" href={pathFor("/contact/")}>Start a conversation <ArrowIcon /></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--light faq-section">
+    <div class="shell faq-grid">
+      <SectionIntro index="07" eyebrow="Questions" title="Useful answers, before the first call." copy="A few important boundaries apply to every inquiry—whether it comes from a claims team, a law office, or an individual." />
+      <FaqList items={homeFaqs} />
+    </div>
+  </section>
+
+  <CtaBand title="Start with a clear question." copy="Tell us what you need to understand, where the matter is located, and whether a deadline is approaching. Keep the first message brief and free of sensitive identifiers." secondaryLabel="Call Right Hand" secondaryHref={`tel:${siteConfig.phoneHref}`} />
+</BaseLayout>
+
+<style>
+  .home-hero { position: relative; overflow: hidden; padding-top: clamp(5rem, 10vw, 9rem); }
+  .home-hero > :global(.field-motif--grid) { position: absolute; inset: 0; color: var(--paper); }
+  .home-hero__contours { position: absolute; top: -8rem; right: -10rem; width: min(61vw, 52rem); height: 47rem; color: var(--sage); opacity: 0.13; transform: rotate(-7deg); }
+  .home-hero__inner { position: relative; display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(17rem, 0.55fr); align-items: end; gap: clamp(3rem, 8vw, 8rem); padding-bottom: clamp(4rem, 8vw, 7rem); }
+  .home-hero h1 { max-width: 11ch; margin: 0; color: var(--paper-light); font-size: clamp(3.6rem, 8vw, 7.65rem); line-height: 0.87; letter-spacing: -0.055em; text-wrap: balance; }
+  .home-hero h1 em { color: var(--copper-light); font-style: italic; font-weight: 440; }
+  .home-hero__lead { max-width: 46rem; margin: 2rem 0 0; color: color-mix(in srgb, var(--paper) 83%, transparent); font-size: clamp(1.08rem, 1rem + 0.4vw, 1.35rem); }
+  .hero-trust { display: flex; flex-wrap: wrap; align-items: center; gap: 0.7rem; margin: 1.8rem 0 0; color: var(--sage-light); font-size: 0.7rem; font-weight: 750; letter-spacing: 0.07em; text-transform: uppercase; }
+  .hero-trust i { width: 0.22rem; height: 0.22rem; border-radius: 50%; background: var(--copper-light); }
+  .assignment-index { position: relative; border: 1px solid rgb(255 255 255 / 22%); background: rgb(5 20 17 / 38%); backdrop-filter: blur(9px); }
+  .assignment-index__label { margin: 0; padding: 1rem 1.15rem; border-bottom: 1px solid rgb(255 255 255 / 16%); color: var(--copper-light); font-size: 0.65rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+  .assignment-index > a { display: grid; min-height: 4.2rem; grid-template-columns: 2rem 1fr auto; align-items: center; gap: 0.7rem; padding: 0.8rem 1.15rem; border-bottom: 1px solid rgb(255 255 255 / 16%); color: var(--paper-light); font-size: 0.9rem; font-weight: 700; text-decoration: none; transition: background 160ms ease; }
+  .assignment-index > a:hover { background: rgb(255 255 255 / 7%); }
+  .assignment-index > a > span:first-child { color: var(--sage-light); font-size: 0.66rem; font-weight: 800; }
+  .assignment-index__note { display: flex; gap: 0.8rem; align-items: flex-start; padding: 1.3rem 1.15rem; }
+  .assignment-index__note > span { width: 0.5rem; height: 0.5rem; margin-top: 0.42rem; border-radius: 50%; background: #7ac292; box-shadow: 0 0 0 0.28rem rgb(122 194 146 / 15%); }
+  .assignment-index__note p { margin: 0; color: var(--sage-light); font-size: 0.72rem; line-height: 1.55; }
+  .process-ribbon { position: relative; border-top: 1px solid rgb(255 255 255 / 16%); }
+  .process-ribbon a { display: flex; min-height: 4.6rem; align-items: center; justify-content: center; gap: 0.55rem; color: var(--sage-light); font-size: 0.78rem; text-align: center; text-decoration: none; }
+  .process-ribbon a span { color: var(--paper-light); font-weight: 800; }
+  .pathway-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin-top: 3rem; }
+  .pathway-card { display: flex; min-height: 30rem; flex-direction: column; justify-content: space-between; padding: clamp(1.75rem, 4vw, 3.25rem); border: 1px solid var(--line); text-decoration: none; transition: transform 180ms ease, box-shadow 180ms ease; }
+  .pathway-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-raised); }
+  .pathway-card--organizations { color: var(--paper-light); background: var(--pine-900); }
+  .pathway-card--individuals { color: var(--ink); background: var(--paper-light); }
+  .pathway-number { font-size: 0.67rem; font-weight: 800; letter-spacing: 0.12em; }
+  .pathway-card--organizations .pathway-number { color: var(--copper-light); }
+  .pathway-card--individuals .pathway-number { color: var(--copper-dark); }
+  .pathway-card h3 { max-width: 13ch; margin: 0; font-size: clamp(2rem, 3.5vw, 3.35rem); }
+  .pathway-card p { max-width: 34rem; margin: 1rem 0 0; color: color-mix(in srgb, currentColor 75%, transparent); }
+  .pathway-link { display: inline-flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 1.25rem; border-top: 1px solid color-mix(in srgb, currentColor 25%, transparent); font-size: 0.8rem; font-weight: 800; }
+  .services-heading { display: flex; align-items: end; justify-content: space-between; gap: 3rem; }
+  .process-section { position: relative; }
+  .process-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 4rem 0 0; padding: 0; border-top: 1px solid rgb(255 255 255 / 22%); list-style: none; }
+  .process-steps li { position: relative; padding: 2rem 1.4rem 0 0; }
+  .process-steps li::before { position: absolute; top: -0.35rem; left: 0; width: 0.7rem; height: 0.7rem; content: ""; border: 2px solid var(--copper-light); border-radius: 50%; background: var(--pine-950); }
+  .process-steps li > span { color: var(--copper-light); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.11em; }
+  .process-steps h3 { max-width: 10ch; margin: 1.2rem 0 0; color: var(--paper-light); }
+  .process-steps p { margin: 0.9rem 0 0; color: var(--sage-light); font-size: 0.9rem; }
+  .process-note { margin: 3rem 0 0; color: var(--copper-light); font-size: 0.77rem; font-weight: 750; }
+  .why-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(3rem, 9vw, 9rem); }
+  .why-grid h2 { margin: 0; }
+  .why-lead { margin: 1.5rem 0 2rem; color: var(--ink-muted); }
+  .approach-list { margin: 0; padding: 0; border-top: 1px solid var(--line-strong); list-style: none; }
+  .approach-list li { display: grid; grid-template-columns: 2rem minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 1rem; min-height: 5.2rem; border-bottom: 1px solid var(--line-strong); }
+  .approach-list span { color: var(--copper-dark); font-size: 0.67rem; font-weight: 800; }
+  .approach-list strong { font-size: 0.94rem; }
+  .approach-list small { color: var(--ink-muted); }
+  .vendor-grid { display: grid; grid-template-columns: 0.4fr 1fr; align-items: center; gap: clamp(3rem, 9vw, 9rem); }
+  .vendor-index { position: relative; display: grid; width: min(100%, 18rem); aspect-ratio: 1; place-items: center; border: 1px solid var(--pine-800); border-radius: 50%; }
+  .vendor-index::before,
+  .vendor-index::after { position: absolute; content: ""; background: var(--pine-800); opacity: 0.45; }
+  .vendor-index::before { width: 1px; height: 100%; }
+  .vendor-index::after { width: 100%; height: 1px; }
+  .vendor-index span { z-index: 1; font-family: var(--font-display); font-size: 7rem; line-height: 1; }
+  .vendor-index small { position: absolute; z-index: 1; bottom: 2.8rem; padding: 0.25rem 0.5rem; background: #dfe5de; font-size: 0.6rem; font-weight: 800; letter-spacing: 0.12em; }
+  .vendor-grid h2 { max-width: 18ch; margin: 0; }
+  .vendor-grid p:not(.eyebrow) { max-width: 48rem; color: var(--ink-muted); }
+  .faq-grid { display: grid; grid-template-columns: 0.72fr 1fr; align-items: start; gap: clamp(3rem, 9vw, 9rem); }
+  @media (max-width: 56rem) {
+    .home-hero__inner { grid-template-columns: 1fr; }
+    .assignment-index { max-width: 34rem; }
+    .process-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 2rem; }
+    .why-grid, .faq-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 44rem) {
+    .home-hero h1 { font-size: clamp(3.4rem, 17vw, 5.2rem); }
+    .home-hero__contours { right: -17rem; width: 44rem; opacity: 0.08; }
+    .pathway-grid, .vendor-grid { grid-template-columns: 1fr; }
+    .pathway-card { min-height: 26rem; }
+    .services-heading { align-items: flex-start; flex-direction: column; }
+    .process-steps { grid-template-columns: 1fr; border-top: 0; }
+    .process-steps li { padding: 1.5rem 0; border-top: 1px solid rgb(255 255 255 / 22%); }
+    .process-steps li::before { display: none; }
+    .approach-list li { grid-template-columns: 2rem 1fr; padding-block: 1rem; }
+    .approach-list small { grid-column: 2; }
+    .vendor-index { width: 11rem; }
+    .vendor-index span { font-size: 4.5rem; }
+    .vendor-index small { bottom: 1.2rem; }
+    .process-ribbon a { align-items: flex-start; flex-direction: column; gap: 0.1rem; padding-block: 1rem; text-align: left; }
+  }
+</style>

@@ -1,0 +1,69 @@
+---
+import ArrowIcon from "@/components/ArrowIcon.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import ContactForm from "@/components/ContactForm.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionIntro from "@/components/SectionIntro.astro";
+import { siteConfig } from "@/data/site";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Contact Right Hand Private Investigator" description="Discuss an Idaho investigation with Right Hand. Start with a high-level phone or email inquiry and do not send sensitive case material yet." schemaType="ContactPage">
+  <Breadcrumbs current="Contact" />
+  <PageHero eyebrow="Contact" title="Start with the question, not the whole file." lead="Share a brief, high-level description of what you need to understand. We will review the purpose, location, timing, and fit before requesting sensitive information." index="FIELD / CNT">
+    <div slot="actions" class="button-row">
+      <a class="button button--paper" href={`tel:${siteConfig.phoneHref}`}>Call {siteConfig.phoneDisplay} <ArrowIcon /></a>
+      <a class="button button--outline-light" href={`mailto:${siteConfig.email}`}>Send a high-level email <ArrowIcon /></a>
+    </div>
+    <aside slot="aside" class="contact-aside"><span>FIRST MESSAGE</span><strong>Goal + location + timing</strong><p>No attachments. No sensitive identifiers. No evidence links.</p></aside>
+  </PageHero>
+
+  <section class="section section--paper contact-options">
+    <div class="shell">
+      <SectionIntro index="01" eyebrow="Direct contact" title="A short conversation is enough to begin." />
+      <div class="contact-cards">
+        <a href={`tel:${siteConfig.phoneHref}`}><span>CALL</span><h3>{siteConfig.phoneDisplay}</h3><p>For a high-level conversation about the assignment and next steps.</p><strong>Call Right Hand <ArrowIcon /></strong></a>
+        <a href={`mailto:${siteConfig.email}`}><span>EMAIL</span><h3>{siteConfig.email}</h3><p>Send the general objective, assignment location, and any important deadline. Do not attach case files or sensitive records.</p><strong>Send a high-level email <ArrowIcon /></strong></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--light guidance-section">
+    <div class="shell guidance-grid">
+      <div><p class="eyebrow"><span>02</span> Helpful details</p><h2>What to include.</h2><ul class="rule-list"><li>Whether you are contacting us as an organization or individual</li><li>The general question or decision involved</li><li>City or county where work may be needed</li><li>Relevant timing or deadline</li><li>Whether an attorney, insurer, employer, or public organization is involved</li></ul></div>
+      <div class="do-not-send"><p class="eyebrow"><span>03</span> Sensitive material</p><h2>What not to send yet.</h2><ul class="rule-list"><li>Social Security numbers or full birth dates</li><li>Account numbers, passwords, or access credentials</li><li>Medical, financial, employment, or claim files</li><li>Intimate images or detailed information about a child</li><li>Evidence uploads, cloud-storage links, or tracking links</li></ul></div>
+    </div>
+  </section>
+
+  <section class="section section--sage intake-section">
+    <div class="shell intake-grid">
+      <SectionIntro index="04" eyebrow="High-level intake" title="Keep the first contact brief." copy="Submission does not create a client relationship. Do not send sensitive material unless Right Hand accepts the matter and provides specific instructions." />
+      <ContactForm />
+    </div>
+  </section>
+
+  <section class="emergency-band"><div class="shell"><span>EMERGENCY / SAFETY</span><p>Do not use this site for an emergency or immediate safety issue. Call 911 if someone is in immediate danger.</p></div></section>
+</BaseLayout>
+
+<style>
+  .contact-aside { padding-left: 1.5rem; border-left: 2px solid var(--copper-light); }
+  .contact-aside span { color: var(--copper-light); font-size: 0.65rem; font-weight: 800; letter-spacing: 0.12em; }
+  .contact-aside strong { display: block; margin-top: 1rem; font-family: var(--font-display); font-size: 1.55rem; font-weight: 520; }
+  .contact-aside p { color: var(--sage-light); font-size: 0.8rem; }
+  .contact-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin-top: 3rem; }
+  .contact-cards > a { display: flex; min-height: 23rem; flex-direction: column; padding: clamp(1.75rem, 4vw, 3rem); border: 1px solid var(--line-strong); color: var(--ink); background: var(--paper-light); text-decoration: none; transition: transform 160ms ease, box-shadow 160ms ease; }
+  .contact-cards > a:hover { transform: translateY(-3px); box-shadow: var(--shadow-raised); }
+  .contact-cards span { color: var(--copper-dark); font-size: 0.65rem; font-weight: 800; letter-spacing: 0.12em; }
+  .contact-cards h3 { overflow-wrap: anywhere; margin: 4rem 0 0; font-size: clamp(1.8rem, 3vw, 2.7rem); }
+  .contact-cards p { color: var(--ink-muted); }
+  .contact-cards strong { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--line); font-size: 0.77rem; }
+  .guidance-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(3rem, 8vw, 8rem); }
+  .guidance-grid h2 { margin: 0 0 2rem; }
+  .do-not-send { padding: clamp(1.5rem, 4vw, 3rem); border: 1px solid var(--copper); background: var(--paper); }
+  .intake-grid { display: grid; grid-template-columns: 0.62fr 1fr; align-items: start; gap: clamp(3rem, 8vw, 8rem); }
+  .emergency-band { color: var(--paper-light); background: var(--copper-dark); }
+  .emergency-band .shell { display: grid; grid-template-columns: 0.35fr 1fr; align-items: center; gap: 2rem; min-height: 6rem; }
+  .emergency-band span { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.12em; }
+  .emergency-band p { margin: 0; }
+  @media (max-width: 48rem) { .contact-cards, .guidance-grid, .intake-grid, .emergency-band .shell { grid-template-columns: 1fr; } .emergency-band .shell { gap: 0; padding-block: 1rem; } }
+</style>

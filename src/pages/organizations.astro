@@ -1,0 +1,131 @@
+---
+import ArrowIcon from "@/components/ArrowIcon.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionIntro from "@/components/SectionIntro.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { pathFor } from "@/utils/urls";
+---
+
+<BaseLayout
+  title="Investigation Support for Idaho Organizations | Right Hand"
+  description="Investigative support for legal teams, claims professionals, employers, and public organizations—scoped carefully and documented clearly."
+  schemaType="CollectionPage"
+>
+  <Breadcrumbs current="Organizations" />
+  <PageHero eyebrow="For organizations" title="Investigation support built for decisions, not drama." lead="Right Hand supports legal teams, claims professionals, employers, and public organizations with carefully scoped fact-gathering and practical documentation." index="FIELD / ORG">
+    <div slot="actions" class="button-row">
+      <a class="button button--paper" href={pathFor("/contact/?audience=organization")}>Discuss an organizational assignment <ArrowIcon /></a>
+      <a class="button button--outline-light" href="#capabilities">Review capabilities <ArrowIcon /></a>
+    </div>
+    <aside slot="aside" class="hero-note">
+      <span>ENGAGEMENT / STANDARD</span>
+      <strong>Question → Scope → Work → Findings</strong>
+      <p>Reporting expectations, contacts, jurisdiction, and boundaries are addressed before fieldwork begins.</p>
+    </aside>
+  </PageHero>
+
+  <section class="section section--paper">
+    <div class="shell">
+      <SectionIntro index="01" eyebrow="Working relationship" title="A reliable extension of your team." copy="The best investigative support begins with a defined business or legal question. We establish the assignment, reporting expectations, points of contact, and boundaries before fieldwork begins." />
+      <div class="value-grid">
+        <article><span>01</span><h3>Clear scope</h3><p>Objectives, locations, timing, and deliverables are agreed in writing.</p></article>
+        <article><span>02</span><h3>Useful records</h3><p>Findings distinguish direct observations, source information, and unresolved points.</p></article>
+        <article><span>03</span><h3>Accountable communication</h3><p>Material developments are raised without overstating what the evidence shows.</p></article>
+        <article><span>04</span><h3>Verified onboarding</h3><p>Requested business and credential information is provided only when current and applicable.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="capabilities" class="section section--light audience-sections">
+    <div class="shell">
+      <SectionIntro index="02" eyebrow="Who we support" title="Different buyers. The same disciplined handoff." copy="The assignment is shaped around the team using the findings, while decisions and regulated professional responsibilities remain with the client." />
+      <div class="audience-list">
+        <article id="legal-teams">
+          <div class="audience-index"><span>01</span><small>LEGAL</small></div>
+          <div><h3>Legal teams & counsel</h3><p>Support may include locates, witness and scene inquiries, surveillance, field documentation, public-source research, and other investigative tasks directed by counsel.</p><p class="boundary">Right Hand does not provide legal advice or promise that material will be admissible.</p><a class="text-link" href={pathFor("/contact/?matter=litigation")}>Discuss litigation support <ArrowIcon /></a></div>
+        </article>
+        <article id="claims-teams">
+          <div class="audience-index"><span>02</span><small>CLAIMS</small></div>
+          <div><h3>Claims teams, TPAs & self-insured organizations</h3><p>Assignments may include field observations, canvasses, interviews, locates, public-record research, and chronology development.</p><p class="boundary">Coverage analysis, reserve setting, liability or benefit decisions, settlement negotiation, and claim adjustment remain with the client and its licensed professionals.</p><a class="text-link" href={pathFor("/contact/?matter=claims")}>Discuss fact-gathering <ArrowIcon /></a></div>
+        </article>
+        <article id="workplace-matters">
+          <div class="audience-index"><span>03</span><small>WORKPLACE</small></div>
+          <div><h3>Employers & HR teams</h3><p>Right Hand can support a defined workplace inquiry through structured interviews, factual chronology work, and lawful source research when external fact-gathering is appropriate.</p><p class="boundary">Employment decisions remain with the organization and its advisers. Right Hand does not provide FCRA-regulated employment or consumer screening.</p><a class="text-link" href={pathFor("/contact/?matter=workplace")}>Discuss a workplace matter <ArrowIcon /></a></div>
+        </article>
+        <article id="public-organizations">
+          <div class="audience-index"><span>04</span><small>PUBLIC</small></div>
+          <div><h3>Public organizations & procurement teams</h3><p>Right Hand welcomes clearly defined investigative opportunities from public entities and organizational buyers. Send the scope, work location, deadline, reporting expectations, and onboarding requirements.</p><p class="boundary">Vendor registration, insurance, and jurisdictional credential requirements are confirmed for each opportunity; no registration or approval is implied by this website.</p><a class="text-link" href={pathFor("/contact/?matter=vendor")}>Start a vendor conversation <ArrowIcon /></a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark deliverables-section">
+    <div class="shell deliverables-grid">
+      <SectionIntro light index="03" eyebrow="Deliverables" title="Reporting matched to the engagement." copy="The legal or operational use of any deliverable should be evaluated by the client and its advisers." />
+      <ul>
+        <li><span>01</span>A written scope and assignment plan</li>
+        <li><span>02</span>Status communications at agreed milestones</li>
+        <li><span>03</span>A factual findings summary</li>
+        <li><span>04</span>Observation logs or interview memoranda</li>
+        <li><span>05</span>Source citations and available public records</li>
+        <li><span>06</span>Lawfully captured photographs or video</li>
+        <li><span>07</span>A clearly identified list of unresolved questions</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--sage">
+    <div class="shell org-process">
+      <SectionIntro index="04" eyebrow="Onboarding" title="From first contact to final handoff." />
+      <ol>
+        <li><span>01</span><strong>High-level consultation</strong></li>
+        <li><span>02</span><strong>Fit, purpose, jurisdiction & conflict review</strong></li>
+        <li><span>03</span><strong>Written scope, authorization & commercial terms</strong></li>
+        <li><span>04</span><strong>Agreed investigative work</strong></li>
+        <li><span>05</span><strong>Findings delivered through the agreed method</strong></li>
+      </ol>
+    </div>
+  </section>
+
+  <CtaBand title="Have a defined assignment or vendor requirement?" copy="Send the business question, general location, desired timing, and required deliverables. Do not send personnel files, medical records, claim files, or other sensitive material in the first message." primaryLabel="Discuss the assignment" />
+</BaseLayout>
+
+<style>
+  .hero-note { padding: 1.5rem; border-top: 2px solid var(--copper-light); background: rgb(255 255 255 / 8%); }
+  .hero-note span { color: var(--copper-light); font-size: 0.64rem; font-weight: 800; letter-spacing: 0.12em; }
+  .hero-note strong { display: block; margin-top: 1.2rem; color: var(--paper-light); font-family: var(--font-display); font-size: 1.45rem; font-weight: 520; }
+  .hero-note p { margin: 0.8rem 0 0; color: var(--sage-light); font-size: 0.82rem; }
+  .value-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; margin-top: 3.5rem; background: var(--line-strong); border: 1px solid var(--line-strong); }
+  .value-grid article { min-height: 19rem; padding: 1.75rem; background: var(--paper-light); }
+  .value-grid span { color: var(--copper-dark); font-size: 0.68rem; font-weight: 800; }
+  .value-grid h3 { margin: 4.5rem 0 0; font-size: 1.8rem; }
+  .value-grid p { color: var(--ink-muted); font-size: 0.88rem; }
+  .audience-list { margin-top: 4rem; border-top: 1px solid var(--line-strong); }
+  .audience-list article { display: grid; grid-template-columns: 0.42fr 1fr; gap: clamp(2rem, 7vw, 7rem); padding-block: clamp(3rem, 7vw, 6rem); border-bottom: 1px solid var(--line-strong); }
+  .audience-index { display: flex; align-items: center; gap: 1rem; align-self: start; color: var(--copper-dark); }
+  .audience-index span { font-family: var(--font-display); font-size: 5rem; line-height: 0.8; }
+  .audience-index small { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.12em; writing-mode: vertical-rl; }
+  .audience-list h3 { margin: 0; font-size: clamp(2rem, 4vw, 3.7rem); }
+  .audience-list article > div:last-child > p { max-width: 50rem; color: var(--ink-muted); }
+  .audience-list .boundary { padding: 0.9rem 1rem; border-left: 2px solid var(--copper); background: var(--paper); font-size: 0.84rem; }
+  .deliverables-grid { display: grid; grid-template-columns: 0.8fr 1fr; gap: clamp(3rem, 9vw, 9rem); }
+  .deliverables-grid ul { margin: 0; padding: 0; border-top: 1px solid rgb(255 255 255 / 23%); list-style: none; }
+  .deliverables-grid li { display: grid; grid-template-columns: 2.5rem 1fr; gap: 1rem; padding-block: 1rem; border-bottom: 1px solid rgb(255 255 255 / 23%); color: var(--paper); }
+  .deliverables-grid li span { color: var(--copper-light); font-size: 0.68rem; font-weight: 800; }
+  .org-process { display: grid; grid-template-columns: 0.72fr 1fr; gap: clamp(3rem, 9vw, 9rem); }
+  .org-process ol { margin: 0; padding: 0; counter-reset: item; list-style: none; }
+  .org-process li { display: grid; grid-template-columns: 3rem 1fr; align-items: center; gap: 1rem; min-height: 4.6rem; border-top: 1px solid var(--line-strong); }
+  .org-process li:last-child { border-bottom: 1px solid var(--line-strong); }
+  .org-process span { color: var(--copper-dark); font-size: 0.66rem; font-weight: 800; }
+  .org-process strong { font-size: 0.9rem; }
+  @media (max-width: 64rem) { .value-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 48rem) {
+    .value-grid, .audience-list article, .deliverables-grid, .org-process { grid-template-columns: 1fr; }
+    .value-grid article { min-height: 14rem; }
+    .value-grid h3 { margin-top: 2.8rem; }
+    .audience-index span { font-size: 3.5rem; }
+  }
+</style>

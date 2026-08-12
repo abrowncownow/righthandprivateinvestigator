@@ -1,0 +1,35 @@
+---
+interface Faq {
+  question: string;
+  answer: string;
+}
+
+interface Props { items: Faq[]; }
+const { items } = Astro.props;
+---
+
+<div class="faq-list">
+  {items.map((item) => (
+    <details>
+      <summary>
+        <span>{item.question}</span>
+        <i aria-hidden="true"></i>
+      </summary>
+      <div class="faq-answer"><p>{item.answer}</p></div>
+    </details>
+  ))}
+</div>
+
+<style>
+  .faq-list { border-top: 1px solid var(--line-strong); }
+  details { border-bottom: 1px solid var(--line-strong); }
+  summary { display: flex; min-height: 5.25rem; align-items: center; justify-content: space-between; gap: 1.5rem; padding-block: 1.25rem; color: var(--ink); font-size: clamp(1.05rem, 1rem + 0.35vw, 1.25rem); font-weight: 750; cursor: pointer; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary i { position: relative; display: block; width: 1.25rem; height: 1.25rem; flex: 0 0 auto; }
+  summary i::before,
+  summary i::after { position: absolute; top: 50%; left: 50%; width: 0.9rem; height: 1.5px; content: ""; background: var(--copper-dark); transform: translate(-50%, -50%); transition: transform 180ms ease; }
+  summary i::after { transform: translate(-50%, -50%) rotate(90deg); }
+  details[open] summary i::after { transform: translate(-50%, -50%) rotate(0); }
+  .faq-answer { max-width: 48rem; padding: 0 3rem 1.75rem 0; }
+  .faq-answer p { margin: 0; color: var(--ink-muted); }
+</style>

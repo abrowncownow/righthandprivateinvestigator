@@ -1,0 +1,25 @@
+---
+import ArrowIcon from "@/components/ArrowIcon.astro";
+import PageHero from "@/components/PageHero.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { pathFor } from "@/utils/urls";
+---
+
+<BaseLayout
+  title="Page Not Found | Right Hand Private Investigator"
+  description="The requested page could not be found."
+  noindex
+>
+  <PageHero
+    eyebrow="404 / Page not found"
+    title="This page is out of the field."
+    lead="The address may have changed, or the page may no longer be here."
+    index="FIELD / 404"
+    narrow
+  >
+    <div slot="actions" class="button-row">
+      <a class="button button--paper" href={pathFor("/")}>Return home <ArrowIcon /></a>
+      <a class="button button--outline-light" href={pathFor("/services/")}>Explore services <ArrowIcon /></a>
+    </div>
+  </PageHero>
+</BaseLayout>
