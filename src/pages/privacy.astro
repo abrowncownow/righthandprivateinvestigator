@@ -1,0 +1,100 @@
+---
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import PageHero from "@/components/PageHero.astro";
+import { effectiveDate, siteConfig } from "@/data/site";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Privacy Policy | Right Hand Private Investigator"
+  description="Read how Right Hand Private Investigator handles information submitted through this website."
+>
+  <Breadcrumbs current="Privacy" />
+  <PageHero
+    eyebrow="Privacy"
+    title="Privacy, explained plainly."
+    lead="This policy describes the information this website may receive, why it may be used, and the choices available to you."
+    index="FIELD / PRV"
+    narrow
+  />
+
+  <section class="section section--light legal-section">
+    <div class="shell legal-grid">
+      <aside aria-label="Policy details">
+        <span>POLICY / 01</span>
+        <strong>Effective {effectiveDate}</strong>
+        <p>This policy applies to righthandprivateinvestigator.com.</p>
+      </aside>
+
+      <article class="prose">
+        <p>
+          Right Hand Private Investigator (“Right Hand,” “we,” “us”) respects the sensitivity of investigative inquiries. This notice explains how information associated with this website may be collected, used, and shared.
+        </p>
+
+        <h2>Information we may receive</h2>
+        <p>
+          You may provide contact information, a general description of a potential matter, communication preferences, and later correspondence. Do not submit sensitive identifiers, private records, intimate material, account credentials, or case evidence through the public website or standard email unless specifically instructed.
+        </p>
+        <p>
+          Hosting, email, and form-service providers may automatically process technical information such as an IP address, browser type, requested page, and request time to operate and protect their services. This site does not use advertising cookies or behavioral advertising.
+        </p>
+
+        <h2>How information may be used</h2>
+        <p>Information may be used to:</p>
+        <ul>
+          <li>Respond to an inquiry;</li>
+          <li>Evaluate purpose, fit, conflicts, jurisdiction, and safety;</li>
+          <li>Communicate about a potential or accepted engagement;</li>
+          <li>Operate, secure, and improve the website;</li>
+          <li>Maintain business records;</li>
+          <li>Comply with applicable law or valid legal process.</li>
+        </ul>
+        <p>Submitting information does not create a client relationship or make the communication legally privileged.</p>
+
+        <h2>When information may be shared</h2>
+        <p>
+          Information may be processed by providers supporting website hosting, form delivery, email, communications, or business administration. It may also be disclosed to professional advisers, authorities, or other parties when reasonably necessary to comply with law, protect safety or rights, or address misuse.
+        </p>
+        <p>Right Hand does not sell personal information or use it for cross-context behavioral advertising.</p>
+
+        <h2>Retention and security</h2>
+        <p>
+          Information is retained only as long as reasonably necessary for the purpose received, business records, dispute prevention, or legal obligations. No website, email system, or storage method can be guaranteed completely secure. Use the initial inquiry only for high-level information.
+        </p>
+
+        <h2>Your choices</h2>
+        <p>
+          You may contact Right Hand to request access to, correction of, or deletion of information you submitted. Some information may need to be retained for legal, safety, conflict, or business-record purposes. Rights may vary depending on applicable law.
+        </p>
+
+        <h2>Third-party links</h2>
+        <p>
+          This site may link to separate websites, including Right Hand Professional Process Service. Their content and privacy practices are governed by their own policies.
+        </p>
+
+        <h2>Children</h2>
+        <p>
+          This website is not directed to children under 18. A parent, guardian, attorney, or appropriate authority should make inquiries involving a minor.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          Questions about this notice may be sent to the contact email listed on this website. Keep the message high level and do not include sensitive case material.
+        </p>
+        <p><a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></p>
+      </article>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-grid { display: grid; grid-template-columns: 0.32fr minmax(0, 1fr); align-items: start; gap: clamp(3rem, 9vw, 9rem); }
+  aside { position: sticky; top: 7rem; padding: 1.4rem 0 1.4rem 1.4rem; border-left: 2px solid var(--copper); }
+  aside span { display: block; color: var(--copper-dark); font-size: 0.65rem; font-weight: 800; letter-spacing: 0.12em; }
+  aside strong { display: block; margin-top: 0.75rem; font-family: var(--font-display); font-size: 1.35rem; font-weight: 550; }
+  aside p { margin-bottom: 0; color: var(--ink-muted); font-size: 0.76rem; }
+  .prose { max-width: 52rem; }
+  .prose > :first-child { margin-top: 0; color: var(--ink); font-size: 1.15rem; }
+  .prose a { color: var(--copper-dark); font-weight: 700; overflow-wrap: anywhere; }
+  @media (max-width: 48rem) { .legal-grid { grid-template-columns: 1fr; } aside { position: static; } }
+</style>

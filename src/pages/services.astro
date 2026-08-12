@@ -1,0 +1,86 @@
+---
+import ArrowIcon from "@/components/ArrowIcon.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionIntro from "@/components/SectionIntro.astro";
+import ServiceCard from "@/components/ServiceCard.astro";
+import { publishedServices, serviceExclusions } from "@/data/services";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { pathFor } from "@/utils/urls";
+---
+
+<BaseLayout
+  title="Private Investigation Services in Idaho | Right Hand"
+  description="Explore surveillance, field documentation, fact-gathering, locates, due diligence, witness inquiries, litigation support, and family matters."
+  schemaType="CollectionPage"
+>
+  <Breadcrumbs current="Services" />
+  <PageHero eyebrow="Capabilities" title="Focused services. Clearly defined assignments." lead="Services are matched to a lawful purpose, location, practical objective, and agreed reporting need. Not every service is available in every jurisdiction or appropriate for every matter." index="FIELD / SVC">
+    <div slot="actions" class="button-row">
+      <a class="button button--paper" href={pathFor("/contact/")}>Discuss the question <ArrowIcon /></a>
+      <a class="button button--outline-light" href="#service-list">Review services <ArrowIcon /></a>
+    </div>
+    <aside slot="aside" class="service-legend">
+      <p>Start with the decision or question—not the investigative technique you think you need.</p>
+      <div><span></span> Organizations</div>
+      <div><span></span> Individuals</div>
+    </aside>
+  </PageHero>
+
+  <section id="service-list" class="section section--paper">
+    <div class="shell">
+      <SectionIntro index="01" eyebrow="Service list" title="Work shaped around the objective." copy="Each capability below is a starting point. The final scope depends on purpose, jurisdiction, available facts, safety, and the intended use of the findings." />
+      <div class="services-full-grid">
+        {publishedServices.map((service) => (
+          <div id={service.slug}><ServiceCard service={service} /></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark exclusions-section">
+    <div class="shell exclusions-grid">
+      <div>
+        <p class="eyebrow eyebrow--light"><span>02</span> Non-negotiable boundaries</p>
+        <h2>Work Right Hand will not perform.</h2>
+        <p>Lawful purpose and safe, proportionate methods are part of the assignment—not fine print added later.</p>
+      </div>
+      <ul>
+        {serviceExclusions.map((item, index) => <li><span>{String(index + 1).padStart(2, "0")}</span>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--sage question-section">
+    <div class="shell question-grid">
+      <span class="question-mark" aria-hidden="true">?</span>
+      <div><p class="eyebrow"><span>03</span> Not sure what fits?</p><h2>Describe the question, not the technique.</h2><p>Tell us what needs to be understood, where the matter is located, how the information will be used, and whether there is a deadline. We will help determine whether a lawful, proportionate approach exists.</p><a class="button" href={pathFor("/contact/")}>Discuss the question <ArrowIcon /></a></div>
+    </div>
+  </section>
+
+  <CtaBand title="Put a defined question in the Right Hands." copy="Start with a high-level description and the general location. Keep sensitive identifiers, records, and evidence out of the first message." />
+</BaseLayout>
+
+<style>
+  .service-legend { padding: 1.5rem; border: 1px solid rgb(255 255 255 / 24%); }
+  .service-legend p { margin: 0 0 1.25rem; color: var(--sage-light); font-size: 0.82rem; }
+  .service-legend div { display: flex; align-items: center; gap: 0.6rem; padding-block: 0.4rem; color: var(--paper); font-size: 0.72rem; font-weight: 750; text-transform: uppercase; }
+  .service-legend div span { width: 0.55rem; height: 0.55rem; border: 1px solid var(--copper-light); transform: rotate(45deg); }
+  .services-full-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin-top: 4rem; }
+  .exclusions-grid { display: grid; grid-template-columns: 0.78fr 1fr; gap: clamp(3rem, 9vw, 9rem); }
+  .exclusions-grid h2 { max-width: 13ch; margin: 0; color: var(--paper-light); }
+  .exclusions-grid > div > p:last-child { max-width: 35rem; color: var(--sage-light); }
+  .exclusions-grid ul { margin: 0; padding: 0; border-top: 1px solid rgb(255 255 255 / 23%); list-style: none; }
+  .exclusions-grid li { display: grid; grid-template-columns: 2.5rem 1fr; gap: 1rem; padding-block: 1rem; border-bottom: 1px solid rgb(255 255 255 / 23%); color: var(--paper); font-size: 0.9rem; }
+  .exclusions-grid li span { color: var(--copper-light); font-size: 0.67rem; font-weight: 800; }
+  .question-grid { display: grid; grid-template-columns: 0.4fr 1fr; align-items: center; gap: clamp(3rem, 9vw, 9rem); }
+  .question-mark { display: grid; width: min(100%, 16rem); aspect-ratio: 1; place-items: center; border: 1px solid var(--pine-800); border-radius: 50%; font-family: var(--font-display); font-size: 8rem; font-style: italic; }
+  .question-grid h2 { max-width: 16ch; margin: 0; }
+  .question-grid p:not(.eyebrow) { max-width: 50rem; color: var(--ink-muted); }
+  .question-grid .button { margin-top: 1rem; }
+  @media (max-width: 48rem) {
+    .services-full-grid, .exclusions-grid, .question-grid { grid-template-columns: 1fr; }
+    .question-mark { width: 9rem; font-size: 4rem; }
+  }
+</style>

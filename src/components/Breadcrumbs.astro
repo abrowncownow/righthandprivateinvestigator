@@ -1,0 +1,23 @@
+---
+import { pathFor } from "@/utils/urls";
+
+interface Props { current: string; }
+const { current } = Astro.props;
+---
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <div class="shell">
+    <ol>
+      <li><a href={pathFor("/")}>Home</a></li>
+      <li aria-current="page">{current}</li>
+    </ol>
+  </div>
+</nav>
+
+<style>
+  .breadcrumbs { color: var(--ink-muted); background: var(--paper-light); }
+  .breadcrumbs ol { display: flex; min-height: 3.2rem; align-items: center; gap: 0.75rem; margin: 0; padding: 0; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; list-style: none; text-transform: uppercase; }
+  .breadcrumbs li + li::before { margin-right: 0.75rem; content: "/"; color: var(--copper-dark); }
+  .breadcrumbs a { text-decoration: none; }
+  .breadcrumbs a:hover { color: var(--copper-dark); }
+</style>

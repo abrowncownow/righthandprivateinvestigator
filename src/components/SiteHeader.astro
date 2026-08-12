@@ -1,0 +1,109 @@
+---
+import ArrowIcon from "./ArrowIcon.astro";
+import BrandMark from "./BrandMark.astro";
+import { primaryNavigation, siteConfig } from "@/data/site";
+import { isCurrentPath, pathFor } from "@/utils/urls";
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header" data-site-header>
+  <div class="header-inner shell">
+    <BrandMark />
+    <button class="menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" data-menu-toggle>
+      <span class="sr-only">Open navigation</span>
+      <span class="menu-lines" aria-hidden="true"><i></i><i></i></span>
+    </button>
+    <nav class="primary-nav" id="primary-navigation" aria-label="Primary" data-primary-navigation>
+      <div class="nav-links">
+        {primaryNavigation.map((item) => (
+          <a href={pathFor(item.href)} aria-current={isCurrentPath(currentPath, item.href) ? "page" : undefined}>
+            {item.label}
+          </a>
+        ))}
+      </div>
+      <a class="button button--small" href={pathFor("/contact/")}>
+        Discuss an assignment <ArrowIcon />
+      </a>
+      <a class="process-link-mobile" href={siteConfig.processServiceUrl} target="_blank" rel="noopener noreferrer">
+        Need process service? <ArrowIcon external />
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector<HTMLElement>("[data-site-header]");
+  const toggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
+  const nav = document.querySelector<HTMLElement>("[data-primary-navigation]");
+
+  if (header && toggle && nav) {
+    header.dataset.enhanced = "true";
+    const closeMenu = (restoreFocus = false) => {
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.querySelector(".sr-only")!.textContent = "Open navigation";
+      header.removeAttribute("data-menu-open");
+      if (restoreFocus) toggle.focus();
+    };
+    const openMenu = () => {
+      toggle.setAttribute("aria-expanded", "true");
+      toggle.querySelector(".sr-only")!.textContent = "Close navigation";
+      header.dataset.menuOpen = "true";
+    };
+    toggle.addEventListener("click", () => {
+      toggle.getAttribute("aria-expanded") === "true" ? closeMenu() : openMenu();
+    });
+    nav.addEventListener("click", (event) => {
+      if ((event.target as HTMLElement).closest("a")) closeMenu();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") closeMenu(true);
+    });
+    document.addEventListener("click", (event) => {
+      if (!header.contains(event.target as Node)) closeMenu();
+    });
+    matchMedia("(min-width: 56rem)").addEventListener("change", (event) => {
+      if (event.matches) closeMenu();
+    });
+  }
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    z-index: 50;
+    top: 0;
+    border-bottom: 1px solid var(--line);
+    background: color-mix(in srgb, var(--paper-light) 92%, transparent);
+    backdrop-filter: blur(16px);
+  }
+  .header-inner { min-height: 4.75rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+  .primary-nav { display: flex; align-items: center; gap: 1.5rem; }
+  .nav-links { display: flex; align-items: center; gap: 1.35rem; }
+  .nav-links a { position: relative; color: var(--ink-muted); font-size: 0.83rem; font-weight: 700; text-decoration: none; }
+  .nav-links a::after { position: absolute; right: 0; bottom: -0.6rem; left: 0; height: 2px; content: ""; background: var(--copper); transform: scaleX(0); transform-origin: left; transition: transform 160ms ease; }
+  .nav-links a:hover,
+  .nav-links a[aria-current="page"] { color: var(--ink); }
+  .nav-links a:hover::after,
+  .nav-links a[aria-current="page"]::after { transform: scaleX(1); }
+  .menu-toggle,
+  .process-link-mobile { display: none; }
+  @media (max-width: 55.99rem) {
+    .header-inner { min-height: 4.25rem; }
+    .menu-toggle { display: grid; width: 2.75rem; height: 2.75rem; padding: 0; place-items: center; border: 1px solid var(--line-strong); border-radius: 50%; color: var(--ink); background: transparent; cursor: pointer; }
+    .menu-lines { position: relative; display: block; width: 1.05rem; height: 0.75rem; }
+    .menu-lines i { position: absolute; left: 0; width: 100%; height: 1.5px; background: currentColor; transition: transform 160ms ease, top 160ms ease; }
+    .menu-lines i:first-child { top: 0.16rem; }
+    .menu-lines i:last-child { top: 0.58rem; }
+    [data-menu-open] .menu-lines i:first-child { top: 0.38rem; transform: rotate(45deg); }
+    [data-menu-open] .menu-lines i:last-child { top: 0.38rem; transform: rotate(-45deg); }
+    .primary-nav { width: 100%; flex-direction: column; align-items: stretch; gap: 1rem; padding: 0 1rem 1.25rem; }
+    .site-header[data-enhanced="true"] .primary-nav { position: absolute; top: 100%; left: 0; display: none; border-bottom: 1px solid var(--line); background: var(--paper-light); box-shadow: var(--shadow-raised); }
+    .site-header[data-menu-open] .primary-nav { display: flex; }
+    .nav-links { flex-direction: column; align-items: stretch; gap: 0; }
+    .nav-links a { display: flex; min-height: 3rem; align-items: center; border-bottom: 1px solid var(--line); font-size: 1rem; }
+    .nav-links a::after { display: none; }
+    .primary-nav .button { justify-content: center; }
+    .process-link-mobile { display: flex; min-height: 3rem; align-items: center; justify-content: space-between; padding-top: 0.4rem; color: var(--ink); font-size: 0.9rem; font-weight: 700; text-decoration: none; }
+  }
+</style>

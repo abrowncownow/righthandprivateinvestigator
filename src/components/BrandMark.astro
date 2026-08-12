@@ -1,0 +1,87 @@
+---
+import { pathFor } from "@/utils/urls";
+
+interface Props {
+  compact?: boolean;
+  inverted?: boolean;
+}
+
+const { compact = false, inverted = false } = Astro.props;
+---
+
+<a class:list={["brand", { compact, inverted }]} href={pathFor("/")} aria-label="Right Hand Private Investigator home">
+  <span class="brand-mark" aria-hidden="true">
+    <span class="brand-mark__corner brand-mark__corner--one"></span>
+    <span class="brand-mark__corner brand-mark__corner--two"></span>
+    <span class="brand-mark__dot"></span>
+  </span>
+  <span class="brand-copy">
+    <strong>RIGHT HAND</strong>
+    <span>PRIVATE INVESTIGATOR</span>
+  </span>
+</a>
+
+<style>
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .brand.inverted { color: var(--paper-light); }
+
+  .brand-mark {
+    position: relative;
+    display: grid;
+    width: 2.35rem;
+    height: 2.35rem;
+    flex: 0 0 auto;
+    place-items: center;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+  }
+
+  .brand-mark::before,
+  .brand-mark::after {
+    position: absolute;
+    content: "";
+    background: currentColor;
+    opacity: 0.42;
+  }
+
+  .brand-mark::before { width: 1px; height: 100%; }
+  .brand-mark::after { width: 100%; height: 1px; }
+
+  .brand-mark__corner {
+    position: absolute;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-color: var(--copper);
+    border-style: solid;
+  }
+
+  .brand-mark__corner--one {
+    inset: 0.38rem auto auto 0.38rem;
+    border-width: 2px 0 0 2px;
+  }
+
+  .brand-mark__corner--two {
+    inset: auto 0.38rem 0.38rem auto;
+    border-width: 0 2px 2px 0;
+  }
+
+  .brand-mark__dot {
+    width: 0.34rem;
+    height: 0.34rem;
+    border-radius: 50%;
+    background: var(--copper);
+    box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--copper) 20%, transparent);
+  }
+
+  .brand-copy { display: grid; line-height: 1; }
+  .brand-copy strong { font-size: 0.89rem; letter-spacing: 0.16em; }
+  .brand-copy span { margin-top: 0.3rem; font-size: 0.57rem; letter-spacing: 0.14em; }
+  .compact .brand-copy { display: none; }
+</style>

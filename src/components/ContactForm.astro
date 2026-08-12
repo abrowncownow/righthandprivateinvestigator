@@ -1,0 +1,125 @@
+---
+import { siteConfig } from "@/data/site";
+import { canonicalFor } from "@/utils/urls";
+
+let endpointIsSecure = false;
+try {
+  endpointIsSecure = new URL(siteConfig.formEndpoint, siteConfig.intendedDomain).protocol === "https:";
+} catch {
+  endpointIsSecure = false;
+}
+const enabled = !siteConfig.previewMode && Boolean(siteConfig.formEndpoint) && endpointIsSecure;
+const disabledHeading = siteConfig.previewMode
+  ? "Online intake is not active on this preview."
+  : "Online intake is currently unavailable.";
+const disabledCopy = siteConfig.previewMode
+  ? "Please call or email using the contact details on this page, and keep the first message high level. This preview does not transmit or store case information."
+  : "Please call or email using the contact details on this page, and keep the first message high level. This website is not accepting online inquiries right now.";
+---
+
+{enabled ? (
+  <form class="contact-form" action={siteConfig.formEndpoint} method="POST" accept-charset="UTF-8" data-contact-form>
+    <input type="hidden" name="_next" value={canonicalFor("/thank-you/").href} />
+    <input class="honeypot" type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+    <fieldset>
+      <legend>I am contacting Right Hand as:</legend>
+      <label class="choice"><input type="radio" name="audience" value="Organization" checked required /> <span>Organization</span></label>
+      <label class="choice"><input type="radio" name="audience" value="Individual" required /> <span>Individual</span></label>
+    </fieldset>
+    <div class="form-grid">
+      <label><span>Name <em>Required</em></span><input name="name" type="text" autocomplete="name" required /></label>
+      <label><span>Organization <em>Optional</em></span><input name="organization" type="text" autocomplete="organization" /></label>
+      <label><span>Email <em>Required</em></span><input name="email" type="email" autocomplete="email" required /></label>
+      <label><span>Phone <em>Optional</em></span><input name="phone" type="tel" autocomplete="tel" /></label>
+      <label><span>Preferred contact method</span><select name="preferred_contact"><option value="Email">Email</option><option value="Phone">Phone</option></select></label>
+      <label><span>Matter type</span><select name="matter_type"><option>Organizational assignment</option><option>Infidelity or relationship concern</option><option>Family or custody matter</option><option>Locate request</option><option>Litigation support</option><option>Claims fact-gathering</option><option>Workplace matter</option><option>Vendor opportunity</option><option>Other</option></select></label>
+      <label><span>General work location <em>City or county only</em></span><input name="location" type="text" /></label>
+      <label><span>Relevant deadline <em>Optional</em></span><input name="deadline" type="date" /></label>
+      <label class="full"><span>Brief overview—no sensitive information</span><textarea name="overview" rows="6" maxlength="1200" aria-describedby="overview-help" required></textarea><small id="overview-help">Share the goal, general location, timing, and any known deadline. Do not include identifiers, private records, intimate material, or evidence links.</small></label>
+    </div>
+    <label class="acknowledgment"><input type="checkbox" name="acknowledgment" required /><span>I understand that sending this form does not create a client relationship and that I should not send sensitive material until Right Hand accepts the matter and provides instructions.</span></label>
+    <button class="button" type="submit">Send high-level inquiry</button>
+    <p class="form-status" aria-live="polite" data-form-status></p>
+  </form>
+) : (
+  <div class="preview-form" aria-labelledby="preview-form-heading">
+    <span>POC / INTAKE</span>
+    <h2 id="preview-form-heading">{disabledHeading}</h2>
+    <p>{disabledCopy}</p>
+    <div class="preview-fields" aria-hidden="true">
+      <div><small>CONTACTING AS</small><span>Organization / Individual</span></div>
+      <div><small>GENERAL LOCATION</small><span>City or county only</span></div>
+      <div class="wide"><small>BRIEF OVERVIEW</small><span>No sensitive information</span></div>
+    </div>
+  </div>
+)}
+
+{enabled && (
+  <script>
+    const form = document.querySelector<HTMLFormElement>("[data-contact-form]");
+    const status = document.querySelector<HTMLElement>("[data-form-status]");
+    if (form && status) {
+      const params = new URLSearchParams(window.location.search);
+      const requestedAudience = params.get("audience")?.toLowerCase();
+      const audienceValue = requestedAudience === "individual" ? "Individual" : requestedAudience === "organization" ? "Organization" : undefined;
+      if (audienceValue) {
+        const audienceField = form.querySelector<HTMLInputElement>(`input[name="audience"][value="${audienceValue}"]`);
+        if (audienceField) audienceField.checked = true;
+      }
+
+      const matterValues: Record<string, string> = {
+        litigation: "Litigation support",
+        claims: "Claims fact-gathering",
+        workplace: "Workplace matter",
+        vendor: "Vendor opportunity",
+        family: "Family or custody matter",
+        infidelity: "Infidelity or relationship concern",
+        locate: "Locate request"
+      };
+      const matterValue = matterValues[params.get("matter")?.toLowerCase() ?? ""];
+      const matterField = form.elements.namedItem("matter_type");
+      if (matterValue && matterField instanceof HTMLSelectElement) matterField.value = matterValue;
+
+      form.addEventListener("submit", () => {
+        const submit = form.querySelector<HTMLButtonElement>("button[type='submit']");
+        if (submit) {
+          submit.disabled = true;
+          submit.textContent = "Sending…";
+        }
+        status.textContent = "Sending your high-level inquiry.";
+      });
+    }
+  </script>
+)}
+
+<style>
+  .contact-form { padding: clamp(1.5rem, 4vw, 3rem); border: 1px solid var(--line-strong); background: var(--paper-light); }
+  fieldset { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; margin: 0 0 2rem; padding: 0; border: 0; }
+  legend { width: 100%; margin-bottom: 0.6rem; font-size: 0.78rem; font-weight: 800; }
+  .choice { display: flex; align-items: center; gap: 0.5rem; }
+  .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+  .form-grid label { display: grid; gap: 0.45rem; }
+  .form-grid label > span { font-size: 0.76rem; font-weight: 800; }
+  .form-grid em { margin-left: 0.25rem; color: var(--ink-muted); font-size: 0.66rem; font-style: normal; font-weight: 600; }
+  .form-grid input,
+  .form-grid select,
+  .form-grid textarea { width: 100%; min-height: 3.1rem; padding: 0.75rem; border: 1px solid var(--line-strong); border-radius: 0; color: var(--ink); background: white; }
+  .form-grid textarea { resize: vertical; }
+  .form-grid .full { grid-column: 1 / -1; }
+  .form-grid small { color: var(--ink-muted); font-size: 0.7rem; }
+  .acknowledgment { display: flex; align-items: flex-start; gap: 0.7rem; margin: 1.5rem 0; color: var(--ink-muted); font-size: 0.75rem; }
+  .acknowledgment input { margin-top: 0.3rem; }
+  .honeypot { position: absolute; left: -10000px; }
+  .form-status { margin-bottom: 0; font-size: 0.8rem; }
+  .preview-form { position: relative; overflow: hidden; padding: clamp(2rem, 5vw, 4rem); border: 1px solid var(--line-strong); background: var(--paper-light); }
+  .preview-form::after { position: absolute; right: -5rem; bottom: -5rem; width: 14rem; height: 14rem; content: ""; border: 1px solid var(--line-strong); border-radius: 50%; box-shadow: 0 0 0 2rem rgb(23 33 30 / 3%), 0 0 0 4rem rgb(23 33 30 / 2%); }
+  .preview-form > span { color: var(--copper-dark); font-size: 0.65rem; font-weight: 800; letter-spacing: 0.12em; }
+  .preview-form h2 { max-width: 18ch; margin: 1rem 0 0; font-size: clamp(2rem, 4vw, 3.5rem); }
+  .preview-form > p { max-width: 42rem; color: var(--ink-muted); }
+  .preview-fields { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; margin-top: 2rem; }
+  .preview-fields div { display: grid; min-height: 4.5rem; align-content: center; padding: 0.8rem; border: 1px solid var(--line); background: white; }
+  .preview-fields .wide { grid-column: 1 / -1; min-height: 7rem; align-content: start; }
+  .preview-fields small { font-size: 0.58rem; font-weight: 800; letter-spacing: 0.1em; }
+  .preview-fields span { color: var(--ink-muted); font-size: 0.76rem; }
+  @media (max-width: 38rem) { .form-grid, .preview-fields { grid-template-columns: 1fr; } .form-grid .full, .preview-fields .wide { grid-column: auto; } }
+</style>

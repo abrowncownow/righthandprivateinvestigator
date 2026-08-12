@@ -1,0 +1,73 @@
+---
+import ArrowIcon from "@/components/ArrowIcon.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionIntro from "@/components/SectionIntro.astro";
+import { siteConfig } from "@/data/site";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { pathFor } from "@/utils/urls";
+---
+
+<BaseLayout title="About Right Hand Private Investigator" description="Learn about Right Hand’s approach to clear scope, lawful methods, practical communication, and useful investigative documentation." schemaType="AboutPage">
+  <Breadcrumbs current="About" />
+  <PageHero eyebrow="About Right Hand" title="Careful work. Straight answers. A dependable handoff." lead="Right Hand Private Investigator is a new Idaho-focused investigative practice from the team behind Right Hand Professional Process Service. The services are distinct, and each assignment is scoped and accepted independently." index="FIELD / ABT">
+    <div slot="actions" class="button-row"><a class="button button--paper" href={pathFor("/contact/")}>Discuss an assignment <ArrowIcon /></a></div>
+    <aside slot="aside" class="about-aside"><p>RIGHT HAND / PRINCIPLE</p><blockquote>Be useful. Be direct. Respect the boundary.</blockquote></aside>
+  </PageHero>
+
+  <section class="section section--paper">
+    <div class="shell">
+      <SectionIntro index="01" eyebrow="Our approach" title="The Right Hand approach." copy="Professional support is measured by the quality of the question, the judgment used in the work, and the clarity of the handoff." />
+      <div class="principles-list">
+        <article><span>01</span><div><h3>Purpose before activity</h3><p>An investigation should answer a defined question, not create activity for its own sake.</p></div></article>
+        <article><span>02</span><div><h3>Facts over theater</h3><p>Observations, sources, assumptions, and unresolved points should be clearly distinguished.</p></div></article>
+        <article><span>03</span><div><h3>Methods with boundaries</h3><p>Every request is reviewed for lawful purpose, jurisdiction, proportionality, and safety.</p></div></article>
+        <article><span>04</span><div><h3>Communication that respects the decision</h3><p>Clients need timely context and honest limitations—not inflated certainty.</p></div></article>
+        <article><span>05</span><div><h3>Documentation that can be understood</h3><p>Reporting should be direct, organized, and appropriate to the agreed assignment.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--light origin-section">
+    <div class="shell origin-grid">
+      <div class="origin-mark" aria-hidden="true"><span>RH</span><small>TWO SERVICES / ONE STANDARD</small></div>
+      <div><p class="eyebrow"><span>02</span> Connected history, separate work</p><h2>Looking for process service?</h2><p>Private investigation and service of process are different engagements. Right Hand Professional Process Service handles requests to serve legal documents through its separate website.</p><p>An engagement with one service does not automatically create an engagement with the other, and licensing or insurance information for one should not be assumed to cover the other.</p><a class="button" href={siteConfig.processServiceUrl} target="_blank" rel="noopener noreferrer">Visit the process-service website <ArrowIcon external /></a></div>
+    </div>
+  </section>
+
+  <section class="section section--dark belief-section">
+    <div class="shell"><span>NO THEATER REQUIRED</span><blockquote>Investigation is disciplined work—not a costume.</blockquote><p>Clear scope. Lawful methods. Useful reporting.</p></div>
+  </section>
+
+  <CtaBand title="Put a defined question in the Right Hands." copy="Begin with the objective, general location, and timing. Keep the first conversation high level." />
+</BaseLayout>
+
+<style>
+  .about-aside { padding: 1.5rem 0 1.5rem 1.5rem; border-left: 2px solid var(--copper-light); }
+  .about-aside p { margin: 0; color: var(--copper-light); font-size: 0.65rem; font-weight: 800; letter-spacing: 0.12em; }
+  .about-aside blockquote { margin: 1rem 0 0; color: var(--paper-light); font-family: var(--font-display); font-size: 1.45rem; line-height: 1.15; }
+  .principles-list { margin-top: 4rem; border-top: 1px solid var(--line-strong); }
+  .principles-list article { display: grid; grid-template-columns: 0.25fr 1fr; gap: clamp(2rem, 7vw, 7rem); padding-block: 2.2rem; border-bottom: 1px solid var(--line-strong); }
+  .principles-list > article > span { color: var(--copper-dark); font-family: var(--font-display); font-size: 3.5rem; line-height: 1; }
+  .principles-list h3 { margin: 0; font-size: clamp(1.7rem, 3vw, 2.6rem); }
+  .principles-list p { max-width: 46rem; margin-bottom: 0; color: var(--ink-muted); }
+  .origin-grid { display: grid; grid-template-columns: 0.55fr 1fr; align-items: center; gap: clamp(3rem, 9vw, 9rem); }
+  .origin-mark { display: grid; width: min(100%, 20rem); aspect-ratio: 1; place-items: center; border: 1px solid var(--line-strong); border-radius: 50%; }
+  .origin-mark span { font-family: var(--font-display); font-size: 6rem; font-style: italic; }
+  .origin-mark small { position: absolute; margin-top: 13rem; padding: 0.3rem 0.6rem; background: var(--paper-light); font-size: 0.6rem; font-weight: 800; letter-spacing: 0.1em; }
+  .origin-grid h2 { margin: 0; }
+  .origin-grid p:not(.eyebrow) { max-width: 48rem; color: var(--ink-muted); }
+  .origin-grid .button { margin-top: 1rem; }
+  .belief-section { text-align: center; }
+  .belief-section span { color: var(--copper-light); font-size: 0.65rem; font-weight: 800; letter-spacing: 0.13em; }
+  .belief-section blockquote { max-width: 19ch; margin: 2rem auto; color: var(--paper-light); font-family: var(--font-display); font-size: clamp(2.7rem, 6vw, 5.8rem); font-style: italic; line-height: 0.96; }
+  .belief-section p { color: var(--sage-light); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+  @media (max-width: 48rem) {
+    .principles-list article, .origin-grid { grid-template-columns: 1fr; }
+    .principles-list > article > span { font-size: 2.5rem; }
+    .origin-mark { width: 11rem; }
+    .origin-mark span { font-size: 3.4rem; }
+    .origin-mark small { margin-top: 8rem; }
+  }
+</style>
