@@ -14,10 +14,10 @@ export interface Service {
 export const services: Service[] = [
   {
     slug: "surveillance-field-documentation",
-    title: "Surveillance & field documentation",
-    summary: "Lawful observation and contemporaneous reporting within an agreed scope.",
+    title: "Surveillance, covert video & field documentation",
+    summary: "Discreet, lawful observation using professional cameras and covert video tools when appropriate.",
     detail:
-      "Observation from public or otherwise authorized locations, supported by time-and-location notes and, when relevant and lawful, photographs or video.",
+      "Observation from public or otherwise authorized locations, supported by detailed time-and-location notes and, when relevant and lawful, professional photography or covert video.",
     outputs: "Observation logs, factual summaries, time-and-location records, and supporting media.",
     boundary: "No guarantee that a particular person, event, or fact will be observed.",
     audiences: ["Organizations", "Individuals"],
@@ -36,21 +36,32 @@ export const services: Service[] = [
   },
   {
     slug: "locates-skip-tracing",
-    title: "Locates & skip tracing",
-    summary: "Lawful location research for verified, permissible purposes.",
+    title: "Skip tracing & person locates",
+    summary: "Finding a person’s current contact or location information for a verified, lawful reason.",
     detail:
-      "Source research intended to identify current contact or location information after the requestor, relationship, purpose, and safety considerations are reviewed.",
+      "Skip tracing means searching lawful records and other reliable sources for leads that may identify where a person lives, works, or can be contacted. Every request is screened for purpose and safety.",
     outputs: "A documented search summary and verified leads appropriate to the engagement.",
     boundary: "Information may be withheld or passed through an intermediary when direct disclosure would be improper or unsafe.",
     audiences: ["Organizations", "Individuals"],
     published: true
   },
   {
+    slug: "license-plate-research",
+    title: "License plate research & vehicle leads",
+    summary: "Lawful vehicle-related research using available records and license plate reader technology.",
+    detail:
+      "When legally permitted and relevant to the assignment, vehicle observations and license plate reader data may help develop time, location, or association leads. Access and results depend on the lawful purpose and available sources.",
+    outputs: "Vehicle observation notes, relevant plate or location leads, photographs, and source documentation when available.",
+    boundary: "No promise of ownership, location, movement history, or access to restricted motor-vehicle records.",
+    audiences: ["Organizations", "Individuals"],
+    published: true
+  },
+  {
     slug: "background-research-due-diligence",
     title: "Background research & due diligence",
-    summary: "Public-record and open-source research for informed decisions.",
+    summary: "Layered public-record and online research, from a focused check to a deeper investigation.",
     detail:
-      "Research to verify representations, map relevant relationships, or identify information that warrants further review.",
+      "Research depth is matched to the question: a focused Level 1 lead check, a broader Level 2 records review, or a deeper Level 3 investigation combining sources, verification, and relationship mapping.",
     outputs: "Source-linked research summaries, verification notes, and clearly marked unresolved points.",
     boundary: "Not offered as an FCRA consumer report or for employment, housing, credit, tenant, or insurance eligibility screening.",
     audiences: ["Organizations", "Individuals"],

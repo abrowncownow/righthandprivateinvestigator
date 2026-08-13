@@ -16,7 +16,7 @@ const previewValue = import.meta.env.PUBLIC_PREVIEW_MODE;
 export const siteConfig = {
   name: "Right Hand Private Investigator",
   shortName: "Right Hand",
-  descriptor: "Private investigative support for Idaho organizations and individuals.",
+  descriptor: "Experienced private investigator serving Idaho organizations and individuals.",
   tagline: "When the facts matter, put it in the Right Hands.",
   phoneDisplay: "(360) 791-0707",
   phoneHref: "+13607910707",

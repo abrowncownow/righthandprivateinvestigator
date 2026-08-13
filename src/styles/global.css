@@ -10,28 +10,28 @@
 
 @layer base {
   :root {
-    --pine-950: #0b2420;
-    --pine-900: #12352f;
-    --pine-800: #1d4a40;
-    --ink: #17211e;
-    --ink-muted: #53605b;
-    --paper: #f3eee3;
-    --paper-light: #fbf8f1;
-    --paper-deep: #e3dac9;
-    --sage: #80968a;
-    --sage-light: #b9c7bf;
-    --copper: #b9683e;
-    --copper-dark: #7d4025;
-    --copper-light: #e2a17a;
-    --focus-light: #f3b58e;
-    --line: rgb(23 33 30 / 16%);
-    --line-strong: rgb(23 33 30 / 28%);
+    --pine-950: #090909;
+    --pine-900: #151515;
+    --pine-800: #2a2a2a;
+    --ink: #151515;
+    --ink-muted: #595959;
+    --paper: #f1eee7;
+    --paper-light: #fffdfa;
+    --paper-deep: #ded8cd;
+    --sage: #8a8175;
+    --sage-light: #d5cec3;
+    --copper: #b58a28;
+    --copper-dark: #72530b;
+    --copper-light: #e2bc57;
+    --focus-light: #e2bc57;
+    --line: rgb(21 21 21 / 16%);
+    --line-strong: rgb(21 21 21 / 28%);
     --font-sans: "Manrope Variable", Manrope, system-ui, sans-serif;
     --font-display: "Newsreader Variable", Newsreader, Georgia, serif;
     --radius-sm: 0.375rem;
     --radius-md: 0.75rem;
     --radius-lg: 1.25rem;
-    --shadow-raised: 0 1rem 3rem rgb(11 36 32 / 10%);
+    --shadow-raised: 0 1rem 3rem rgb(0 0 0 / 13%);
     --container: 75rem;
     --section-space: clamp(4.5rem, 9vw, 8rem);
   }
@@ -55,7 +55,7 @@
   .section--paper { background: var(--paper); }
   .section--light { background: var(--paper-light); }
   .section--copper { background: var(--copper-light); }
-  .section--sage { background: #dfe5de; }
+  .section--sage { background: #e2ddd4; }
   .eyebrow { display: flex; align-items: center; gap: 0.65rem; margin: 0 0 1.5rem; color: var(--copper-dark); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; }
   .eyebrow span { display: inline-flex; align-items: center; gap: 0.65rem; }
   .eyebrow span::after { width: 2rem; height: 1px; content: ""; background: currentColor; }
@@ -88,7 +88,7 @@
   .prose ul { padding-left: 1.25rem; }
   .skip-link { position: fixed; z-index: 999; top: 0.75rem; left: 0.75rem; padding: 0.7rem 1rem; color: var(--paper-light); background: var(--pine-950); transform: translateY(-160%); transition: transform 120ms ease; }
   .skip-link:focus { transform: translateY(0); }
-  .preview-banner { padding: 0.5rem 1rem; color: var(--paper-light); background: var(--copper-dark); font-size: 0.76rem; text-align: center; }
+  .preview-banner { padding: 0.5rem 1rem; color: var(--paper-light); background: #8f1720; font-size: 0.76rem; text-align: center; }
   .preview-banner span { margin-right: 0.45rem; font-weight: 850; letter-spacing: 0.08em; text-transform: uppercase; }
   .sr-only { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; white-space: nowrap !important; border: 0 !important; }
 }

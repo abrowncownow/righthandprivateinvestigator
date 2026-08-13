@@ -57,7 +57,7 @@ try {
   response = await page.goto(`${origin}/contact/?audience=organization&matter=claims`, { waitUntil: "domcontentloaded" });
   if (!response?.ok()) throw new Error("Second production contact route did not load successfully");
   if (!await page.locator('input[name="audience"][value="Organization"]').isChecked()) throw new Error("Organization CTA prefill failed");
-  if (await page.locator('select[name="matter_type"]').inputValue() !== "Claims fact-gathering") throw new Error("Claims matter prefill failed");
+  if (await page.locator('select[name="matter_type"]').inputValue() !== "Claims investigation") throw new Error("Claims matter prefill failed");
   if (submitted) throw new Error("Production-form test made an unexpected submission");
   console.log("Production form and CTA prefill checks passed without submitting.");
 } finally {
