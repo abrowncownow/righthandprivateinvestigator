@@ -16,7 +16,7 @@ import { pathFor } from "@/utils/urls";
   schemaType="CollectionPage"
 >
   <Breadcrumbs current="Services" />
-  <PageHero eyebrow="Capabilities" title="Focused services. Clearly defined assignments." lead="Start with what you need to understand. Cameron will recommend a practical investigative approach based on the objective, location, timing, and reporting needs." index="FIELD / SVC">
+  <PageHero eyebrow="Capabilities" title="Focused services. Clearly defined assignments." lead="Start with what you need to understand. We will recommend a practical investigative approach based on the objective, location, timing, and reporting needs." index="FIELD / SVC">
     <div slot="actions" class="button-row">
       <a class="button button--paper" href={pathFor("/contact/")}>Discuss your objective <ArrowIcon /></a>
       <a class="button button--outline-light" href="#service-list">Review services <ArrowIcon /></a>
@@ -30,7 +30,7 @@ import { pathFor } from "@/utils/urls";
 
   <section id="service-list" class="section section--paper">
     <div class="shell">
-      <SectionIntro index="01" eyebrow="Service list" title="Work shaped around your objective." copy="Each capability can stand alone or become part of a broader plan. Cameron will explain what fits, what it costs, and what the finished work can include." />
+      <SectionIntro index="01" eyebrow="Service list" title="Work shaped around your objective." copy="Each capability can stand alone or become part of a broader plan. We will explain what fits, what it costs, and what the finished work can include." />
       <div class="services-full-grid">
         {publishedServices.map((service) => (
           <div id={service.slug}><ServiceCard service={service} /></div>
@@ -55,11 +55,11 @@ import { pathFor } from "@/utils/urls";
   <section class="section section--sage question-section">
     <div class="shell question-grid">
       <span class="question-mark" aria-hidden="true">?</span>
-      <div><p class="eyebrow"><span>03</span> Not sure what fits?</p><h2>Start with what you need to know.</h2><p>Tell Cameron what you are trying to understand, where the matter is located, and whether there is a deadline. He will translate that objective into clear options and a practical next step.</p><a class="button" href={pathFor("/contact/")}>Talk with Cameron <ArrowIcon /></a></div>
+      <div><p class="eyebrow"><span>03</span> Not sure what fits?</p><h2>Start with what you need to know.</h2><p>Tell us what you are trying to understand, where the matter is located, and whether there is a deadline. We will translate that objective into clear options and a practical next step.</p><a class="button" href={pathFor("/contact/")}>Start a conversation <ArrowIcon /></a></div>
     </div>
   </section>
 
-  <CtaBand title="Put the question in the Right Hands." copy="Start with what you need to understand, the general location, and any important timing. Cameron will help shape the next step." primaryLabel="Discuss your objective" />
+  <CtaBand title="Put the question in the Right Hands." copy="Start with what you need to understand, the general location, and any important timing. We will help shape the next step." primaryLabel="Discuss your objective" />
 </BaseLayout>
 
 <style>
