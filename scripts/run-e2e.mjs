@@ -3,7 +3,8 @@ import { buildSite, environmentFor, PREVIEW_BASE_PATH } from "./lib/build.mjs";
 import { run } from "./lib/process.mjs";
 
 const filters = process.argv.slice(2);
-const port = 4400 + (process.pid % 2000);
+// Keep the randomized test server inside a Chromium-safe port range.
+const port = 4600 + (process.pid % 300);
 const baseURL = `http://127.0.0.1:${port}${PREVIEW_BASE_PATH}`;
 const previewEnvironment = {
   ...environmentFor("preview"),

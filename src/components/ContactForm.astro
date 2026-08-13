@@ -1,6 +1,7 @@
 ---
 import { siteConfig } from "@/data/site";
 import { canonicalFor } from "@/utils/urls";
+import { pathFor } from "@/utils/urls";
 
 let endpointIsSecure = false;
 try {
@@ -30,14 +31,14 @@ const disabledCopy = siteConfig.previewMode
       <label><span>Name <em>Required</em></span><input name="name" type="text" autocomplete="name" required /></label>
       <label><span>Organization <em>Optional</em></span><input name="organization" type="text" autocomplete="organization" /></label>
       <label><span>Email <em>Required</em></span><input name="email" type="email" autocomplete="email" required /></label>
-      <label><span>Phone <em>Optional</em></span><input name="phone" type="tel" autocomplete="tel" /></label>
+      <label><span>Phone <em>Required</em></span><input name="phone" type="tel" autocomplete="tel" required /></label>
       <label><span>Preferred contact method</span><select name="preferred_contact"><option value="Email">Email</option><option value="Phone">Phone</option></select></label>
-      <label><span>Matter type</span><select name="matter_type"><option>Organizational assignment</option><option>Infidelity or relationship concern</option><option>Family or custody matter</option><option>Locate request</option><option>Litigation support</option><option>Claims fact-gathering</option><option>Workplace matter</option><option>Vendor opportunity</option><option>Other</option></select></label>
-      <label><span>General work location <em>City or county only</em></span><input name="location" type="text" /></label>
+      <label><span>Investigation type</span><select name="matter_type"><option>Surveillance or covert video</option><option>Skip trace or person locate</option><option>License plate or vehicle research</option><option>Background or records research</option><option>Infidelity or relationship concern</option><option>Family or custody matter</option><option>Litigation support</option><option>Claims investigation</option><option>Workplace investigation</option><option>Vendor opportunity</option><option>Other</option></select></label>
+      <label><span>Investigation location <em>City, county, or region</em></span><input name="location" type="text" required /></label>
       <label><span>Relevant deadline <em>Optional</em></span><input name="deadline" type="date" /></label>
-      <label class="full"><span>Brief overview—no sensitive information</span><textarea name="overview" rows="6" maxlength="1200" aria-describedby="overview-help" required></textarea><small id="overview-help">Share the goal, general location, timing, and any known deadline. Do not include identifiers, private records, intimate material, or evidence links.</small></label>
+      <label class="full"><span>Investigation details</span><textarea name="overview" rows="6" maxlength="1200" aria-describedby="overview-help" required></textarea><small id="overview-help">Briefly describe what you need to find out, relevant dates, the general location, and any deadline. Do not include Social Security numbers, account access, intimate material, or evidence links.</small></label>
     </div>
-    <label class="acknowledgment"><input type="checkbox" name="acknowledgment" required /><span>I understand that sending this form does not create a client relationship and that I should not send sensitive material until Right Hand accepts the matter and provides instructions.</span></label>
+    <label class="acknowledgment"><input type="checkbox" name="terms_accepted" value="yes" required /><span>I have read and agree to the <a href={pathFor("/terms/")} target="_blank">Terms of Use</a> and <a href={pathFor("/privacy/")} target="_blank">Privacy Policy</a>. I understand that submitting this form does not create a client relationship, guarantee acceptance, or authorize work.</span></label>
     <button class="button" type="submit">Send high-level inquiry</button>
     <p class="form-status" aria-live="polite" data-form-status></p>
   </form>
@@ -48,8 +49,9 @@ const disabledCopy = siteConfig.previewMode
     <p>{disabledCopy}</p>
     <div class="preview-fields" aria-hidden="true">
       <div><small>CONTACTING AS</small><span>Organization / Individual</span></div>
-      <div><small>GENERAL LOCATION</small><span>City or county only</span></div>
-      <div class="wide"><small>BRIEF OVERVIEW</small><span>No sensitive information</span></div>
+      <div><small>PHONE + EMAIL</small><span>Your preferred contact details</span></div>
+      <div><small>INVESTIGATION LOCATION</small><span>City, county, or region</span></div>
+      <div class="wide"><small>INVESTIGATION DETAILS</small><span>Goal, relevant dates, timing, and deadline</span></div>
     </div>
   </div>
 )}
@@ -69,12 +71,12 @@ const disabledCopy = siteConfig.previewMode
 
       const matterValues: Record<string, string> = {
         litigation: "Litigation support",
-        claims: "Claims fact-gathering",
-        workplace: "Workplace matter",
+        claims: "Claims investigation",
+        workplace: "Workplace investigation",
         vendor: "Vendor opportunity",
         family: "Family or custody matter",
         infidelity: "Infidelity or relationship concern",
-        locate: "Locate request"
+        locate: "Skip trace or person locate"
       };
       const matterValue = matterValues[params.get("matter")?.toLowerCase() ?? ""];
       const matterField = form.elements.namedItem("matter_type");
@@ -109,6 +111,7 @@ const disabledCopy = siteConfig.previewMode
   .form-grid small { color: var(--ink-muted); font-size: 0.7rem; }
   .acknowledgment { display: flex; align-items: flex-start; gap: 0.7rem; margin: 1.5rem 0; color: var(--ink-muted); font-size: 0.75rem; }
   .acknowledgment input { margin-top: 0.3rem; }
+  .acknowledgment a { color: var(--copper-dark); font-weight: 800; }
   .honeypot { position: absolute; left: -10000px; }
   .form-status { margin-bottom: 0; font-size: 0.8rem; }
   .preview-form { position: relative; overflow: hidden; padding: clamp(2rem, 5vw, 4rem); border: 1px solid var(--line-strong); background: var(--paper-light); }
