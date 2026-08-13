@@ -13,24 +13,24 @@ import { pathFor } from "@/utils/urls";
 const homeServices = publishedServices.slice(0, 6);
 const homeFaqs = [
   {
-    question: "What types of matters do you consider?",
-    answer: "Right Hand considers organizational and individual assignments involving lawful surveillance, field documentation, workplace or claims fact-gathering, locates, public-record research, witness or scene inquiries, litigation support, and sensitive family or relationship matters. Availability depends on the location, purpose, and specific scope."
+    question: "What types of matters can Right Hand help with?",
+    answer: "Right Hand works with organizations and individuals on surveillance, field documentation, workplace and claims fact-gathering, locates, public-record research, witness and scene inquiries, litigation support, and sensitive family or relationship matters."
   },
   {
-    question: "Can you guarantee an answer or outcome?",
-    answer: "No. An investigation may confirm a concern, contradict it, add context, or remain inconclusive. We explain practical limitations before work begins and report only what the available facts support."
+    question: "What happens after I get in touch?",
+    answer: "Cameron will listen to what you need to understand, ask a few practical questions, and explain the available options. If the matter is a good fit, you will receive a clear scope, expected costs, and next steps before work begins."
   },
   {
     question: "Will my inquiry be confidential?",
-    answer: "We handle inquiries with discretion, but a website inquiry is not automatically privileged and does not create a client relationship. Do not send sensitive material until the matter has been accepted and a delivery method has been agreed."
+    answer: "Inquiries are handled discreetly. For your privacy, begin with a brief overview and wait to send sensitive documents or records until Cameron provides a secure way to share them."
   },
   {
-    question: "Can you investigate anyone for any reason?",
-    answer: "No. Every request must have a lawful, permissible purpose. Right Hand may ask about your identity, relationship to the matter, and intended use of the information, and may decline requests involving harassment, coercion, unlawful tracking, account access, or another improper purpose."
+    question: "How much does an investigation cost?",
+    answer: "Cost depends on the objective, location, timing, and type of work involved. Right Hand explains the recommended approach and fee arrangement before you decide whether to proceed."
   },
   {
-    question: "Are you licensed and insured?",
-    answer: "Requirements vary by jurisdiction and assignment. Right Hand will confirm applicable requirements before accepting work and provide verified business or credential information relevant to an engagement. This website does not claim blanket authorization in every Idaho jurisdiction."
+    question: "Where do you take assignments?",
+    answer: "Right Hand is focused on Idaho assignments. Location, timing, and any jurisdiction-specific requirements are confirmed during the initial conversation."
   },
   {
     question: "Do you provide process service?",
@@ -49,14 +49,14 @@ const homeFaqs = [
     <div class="shell home-hero__inner">
       <div class="home-hero__copy">
         <p class="hero-profession">PRIVATE INVESTIGATOR</p>
-        <p class="eyebrow eyebrow--light"><span>FIELD / 01</span> Experienced investigative services • Idaho</p>
+        <p class="eyebrow eyebrow--light"><span>FIELD / 01</span> Private investigative services • Idaho</p>
         <h1>Evidence for your <em>next move.</em></h1>
-        <p class="home-hero__lead">An experienced Idaho private investigator using advanced, covert technology, disciplined fieldwork, and clear reporting to help organizations and individuals get the facts.</p>
+        <p class="home-hero__lead">Cameron Stewart provides discreet fieldwork, professional investigative technology, and clear reporting to help Idaho organizations and individuals understand the facts and move forward.</p>
         <div class="button-row">
           <a class="button button--paper" href={pathFor("/contact/")}>Discuss an assignment <ArrowIcon /></a>
           <a class="button button--outline-light" href={pathFor("/services/")}>Explore services <ArrowIcon /></a>
         </div>
-        <p class="hero-trust">Confidential handling <i></i> Lawful methods <i></i> Legal-ready reporting</p>
+        <p class="hero-trust">Discreet handling <i></i> Lawful methods <i></i> Clear reporting</p>
       </div>
       <aside class="assignment-index" aria-label="Assignment pathways">
         <p class="assignment-index__label">Assignment index</p>
@@ -78,7 +78,7 @@ const homeFaqs = [
 
   <section class="section section--light technology-section">
     <div class="shell technology-grid">
-      <SectionIntro index="02" eyebrow="Advanced investigative tools" title="Discreet technology. Human judgment." copy="Tools are selected for the question and used only when lawful and proportionate. Technology develops leads; an experienced private investigator documents what the evidence actually supports." />
+      <SectionIntro index="02" eyebrow="Professional investigative tools" title="Professional tools. Human judgment." copy="Every assignment starts with the objective. Right Hand combines professional cameras, discreet video, research technology, and secure evidence handling to document the facts clearly." />
       <ul class="technology-list">
         <li><span>01</span><div><strong>Professional cameras</strong><small>Clear photo documentation for field observations.</small></div></li>
         <li><span>02</span><div><strong>Covert video solutions</strong><small>Discreet video capture where recording is lawful.</small></div></li>
@@ -115,7 +115,7 @@ const homeFaqs = [
   <section class="section section--light">
     <div class="shell">
       <div class="services-heading">
-        <SectionIntro index="03" eyebrow="Capabilities" title="Focused work, matched to the question." copy="Not every matter needs every tool. Work is selected for the objective, location, lawful purpose, and reporting need." />
+        <SectionIntro index="03" eyebrow="Capabilities" title="Focused work, built around your objective." copy="The investigative approach is shaped around what you need to understand, where the work will take place, and how the findings will be used." />
         <a class="text-link" href={pathFor("/services/")}>View all services <ArrowIcon /></a>
       </div>
       <div class="card-grid">
@@ -126,7 +126,7 @@ const homeFaqs = [
 
   <section class="section process-section section--dark">
     <div class="shell">
-      <SectionIntro light index="05" eyebrow="The investigation" title="A clear path from question to evidence." copy="Useful work begins with realistic objectives, explicit boundaries, and a shared understanding of what the investigation can establish." />
+      <SectionIntro light index="05" eyebrow="The investigation" title="A clear path from question to evidence." copy="You will understand the plan, timing, expected deliverables, and costs before investigative work begins." />
       <ol class="process-steps">
         <li>
           <span>01</span>
@@ -136,7 +136,7 @@ const homeFaqs = [
         <li>
           <span>02</span>
           <h3>Define the scope</h3>
-          <p>We assess fit, jurisdiction, lawful options, practical limits, and likely costs before accepting work.</p>
+          <p>We recommend a practical approach and agree on timing, deliverables, and costs.</p>
         </li>
         <li>
           <span>03</span>
@@ -149,7 +149,7 @@ const homeFaqs = [
           <p>Receive a detailed report with relevant records, photographs, video, timelines, and clearly identified findings—organized for your attorney, insurer, employer, or third-party arbitration when appropriate.</p>
         </li>
       </ol>
-      <p class="process-note">No investigation can guarantee a particular fact, event, or outcome.</p>
+      <p class="process-note">The result is a clear record of what was found, what it means to the assignment, and what remains unresolved.</p>
     </div>
   </section>
 
@@ -177,7 +177,7 @@ const homeFaqs = [
       <div>
         <p class="eyebrow"><span>06</span> Organizational onboarding</p>
         <h2>Have a defined assignment or vendor requirement?</h2>
-        <p>Send the business question, general location, desired timing, deliverables, and onboarding requirements. Right Hand will confirm fit and provide only current, applicable business information.</p>
+        <p>Send the business question, general location, desired timing, deliverables, and onboarding requirements. Right Hand will confirm fit and provide the information your onboarding process requires.</p>
         <div class="button-row">
           <a class="button" href={pathFor("/organizations/#public-organizations")}>Review vendor approach <ArrowIcon /></a>
           <a class="text-link" href={pathFor("/contact/")}>Start a conversation <ArrowIcon /></a>
@@ -188,12 +188,12 @@ const homeFaqs = [
 
   <section class="section section--light faq-section">
     <div class="shell faq-grid">
-      <SectionIntro index="07" eyebrow="Questions" title="Useful answers, before the first call." copy="A few important boundaries apply to every inquiry—whether it comes from a claims team, a law office, or an individual." />
+      <SectionIntro index="07" eyebrow="Questions" title="What clients often want to know first." copy="A straightforward first conversation can answer most questions about fit, timing, cost, and next steps." />
       <FaqList items={homeFaqs} />
     </div>
   </section>
 
-  <CtaBand title="Get the evidence you need to move forward." copy="Right Hand can equip you with clear, organized evidence to help you protect your interests and pursue what is rightfully yours through negotiation, the legal system, or third-party arbitration." secondaryLabel="Call a private investigator" secondaryHref={`tel:${siteConfig.phoneHref}`} />
+  <CtaBand title="Get the evidence you need to move forward." copy="Clear, organized findings can help you protect your interests, make an informed decision, and take the next step with confidence." secondaryLabel="Call Cameron Stewart" secondaryHref={`tel:${siteConfig.phoneHref}`} />
 </BaseLayout>
 
 <style>

@@ -14,8 +14,8 @@ const disabledHeading = siteConfig.previewMode
   ? "Online intake is not active on this preview."
   : "Online intake is currently unavailable.";
 const disabledCopy = siteConfig.previewMode
-  ? "Please call or email using the contact details on this page, and keep the first message high level. This preview does not transmit or store case information."
-  : "Please call or email using the contact details on this page, and keep the first message high level. This website is not accepting online inquiries right now.";
+  ? `Please call or email ${siteConfig.investigatorName} using the contact details on this page. This preview does not transmit or store inquiry information.`
+  : `Please call or email ${siteConfig.investigatorName} using the contact details on this page. Online inquiries are temporarily unavailable.`;
 ---
 
 {enabled ? (
@@ -36,10 +36,10 @@ const disabledCopy = siteConfig.previewMode
       <label><span>Investigation type</span><select name="matter_type"><option>Surveillance or covert video</option><option>Skip trace or person locate</option><option>License plate or vehicle research</option><option>Background or records research</option><option>Infidelity or relationship concern</option><option>Family or custody matter</option><option>Litigation support</option><option>Claims investigation</option><option>Workplace investigation</option><option>Vendor opportunity</option><option>Other</option></select></label>
       <label><span>Investigation location <em>City, county, or region</em></span><input name="location" type="text" required /></label>
       <label><span>Relevant deadline <em>Optional</em></span><input name="deadline" type="date" /></label>
-      <label class="full"><span>Investigation details</span><textarea name="overview" rows="6" maxlength="1200" aria-describedby="overview-help" required></textarea><small id="overview-help">Briefly describe what you need to find out, relevant dates, the general location, and any deadline. Do not include Social Security numbers, account access, intimate material, or evidence links.</small></label>
+      <label class="full"><span>Investigation details</span><textarea name="overview" rows="6" maxlength="1200" aria-describedby="overview-help" required></textarea><small id="overview-help">Briefly describe what you need to find out, relevant dates, the general location, and any deadline. For your privacy, wait to share sensitive records or identifying information.</small></label>
     </div>
     <label class="acknowledgment"><input type="checkbox" name="terms_accepted" value="yes" required /><span>I have read and agree to the <a href={pathFor("/terms/")} target="_blank">Terms of Use</a> and <a href={pathFor("/privacy/")} target="_blank">Privacy Policy</a>. I understand that submitting this form does not create a client relationship, guarantee acceptance, or authorize work.</span></label>
-    <button class="button" type="submit">Send high-level inquiry</button>
+    <button class="button" type="submit">Request a consultation</button>
     <p class="form-status" aria-live="polite" data-form-status></p>
   </form>
 ) : (
@@ -88,7 +88,7 @@ const disabledCopy = siteConfig.previewMode
           submit.disabled = true;
           submit.textContent = "Sending…";
         }
-        status.textContent = "Sending your high-level inquiry.";
+        status.textContent = "Sending your consultation request.";
       });
     }
   </script>

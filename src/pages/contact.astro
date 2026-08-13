@@ -8,36 +8,36 @@ import { siteConfig } from "@/data/site";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Contact Right Hand Private Investigator" description="Discuss an Idaho investigation with Right Hand. Start with a high-level phone or email inquiry and do not send sensitive case material yet." schemaType="ContactPage">
+<BaseLayout title="Contact Cameron Stewart | Right Hand Private Investigator" description="Talk with Cameron Stewart about an Idaho investigation. A brief phone call or email is enough to understand your options and next steps." schemaType="ContactPage">
   <Breadcrumbs current="Contact" />
-  <PageHero eyebrow="Contact a private investigator" title="Tell us what you need to find out." lead="Provide your name, phone number, email, investigation location, and a brief description. Your inquiry is handled discreetly and reviewed for lawful purpose, timing, and fit." index="FIELD / CNT">
+  <PageHero eyebrow="Contact Cameron Stewart" title="Tell Cameron what you need to find out." lead="A brief phone call or email is enough to begin. Cameron will listen, ask a few practical questions, and explain the options, expected costs, and next steps." index="FIELD / CNT">
     <div slot="actions" class="button-row">
       <a class="button button--paper" href={`tel:${siteConfig.phoneHref}`}>Call {siteConfig.phoneDisplay} <ArrowIcon /></a>
-      <a class="button button--outline-light" href={`mailto:${siteConfig.email}`}>Send a high-level email <ArrowIcon /></a>
+      <a class="button button--outline-light" href={`mailto:${siteConfig.email}`}>Email Cameron <ArrowIcon /></a>
     </div>
-    <aside slot="aside" class="contact-aside"><span>FIRST MESSAGE</span><strong>Goal + location + timing</strong><p>No attachments. No sensitive identifiers. No evidence links.</p></aside>
+    <aside slot="aside" class="contact-aside"><span>YOUR INVESTIGATOR</span><strong>{siteConfig.investigatorName}</strong><p>{siteConfig.investigatorTitle} · Idaho-focused service</p></aside>
   </PageHero>
 
   <section class="section section--paper contact-options">
     <div class="shell">
-      <SectionIntro index="01" eyebrow="Direct contact" title="A short conversation is enough to begin." />
+      <SectionIntro index="01" eyebrow="Direct contact" title="Speak directly with your investigator." copy="Cameron handles inquiries personally and will help you decide whether an investigation is the right next step." />
       <div class="contact-cards">
-        <a href={`tel:${siteConfig.phoneHref}`}><span>CALL</span><h3>{siteConfig.phoneDisplay}</h3><p>For a high-level conversation about the assignment and next steps.</p><strong>Call Right Hand <ArrowIcon /></strong></a>
-        <a href={`mailto:${siteConfig.email}`}><span>EMAIL</span><h3>{siteConfig.email}</h3><p>Send the general objective, assignment location, and any important deadline. Do not attach case files or sensitive records.</p><strong>Send a high-level email <ArrowIcon /></strong></a>
+        <a href={`tel:${siteConfig.phoneHref}`}><span>CALL CAMERON</span><h3>{siteConfig.phoneDisplay}</h3><p>Talk through what is happening, what you need to understand, and any important timing.</p><strong>Call {siteConfig.investigatorName} <ArrowIcon /></strong></a>
+        <a href={`mailto:${siteConfig.email}`}><span>EMAIL CAMERON</span><h3>{siteConfig.email}</h3><p>Send a brief overview, the general location, and any important deadline. Cameron will follow up about the next step.</p><strong>Email {siteConfig.investigatorName} <ArrowIcon /></strong></a>
       </div>
     </div>
   </section>
 
   <section class="section section--light guidance-section">
     <div class="shell guidance-grid">
-      <div><p class="eyebrow"><span>02</span> Helpful details</p><h2>What to include.</h2><ul class="rule-list"><li>Your name, phone number, and email address</li><li>The type of investigation or what you need to find out</li><li>City, county, or region where work may be needed</li><li>Relevant names, dates, timing, or deadline—without sensitive identifiers</li><li>Whether an attorney, insurer, employer, or public organization is involved</li></ul></div>
-      <div class="do-not-send"><p class="eyebrow"><span>03</span> Sensitive material</p><h2>What not to send yet.</h2><ul class="rule-list"><li>Social Security numbers or full birth dates</li><li>Account numbers, passwords, or access credentials</li><li>Medical, financial, employment, or claim files</li><li>Intimate images or detailed information about a child</li><li>Evidence uploads, cloud-storage links, or tracking links</li></ul></div>
+      <div><p class="eyebrow"><span>02</span> Helpful details</p><h2>What to include.</h2><ul class="rule-list"><li>What you want to understand or document</li><li>City, county, or region where work may be needed</li><li>Relevant dates, timing, or deadline</li><li>Whether an attorney, insurer, employer, or public organization is involved</li></ul></div>
+      <div class="do-not-send"><p class="eyebrow"><span>03</span> Protect your privacy</p><h2>Start with the essentials.</h2><p>A short overview is enough for the first conversation. Please wait to send sensitive records, identifying information, intimate material, or case files until Cameron explains how they should be shared.</p></div>
     </div>
   </section>
 
   <section class="section section--sage intake-section">
     <div class="shell intake-grid">
-      <SectionIntro index="04" eyebrow="High-level intake" title="Keep the first contact brief." copy="Submission does not create a client relationship. Do not send sensitive material unless Right Hand accepts the matter and provides specific instructions." />
+      <SectionIntro index="04" eyebrow="Start the conversation" title="Tell Cameron how he can help." copy="Use the form for a brief overview. If the matter appears to be a fit, Cameron will contact you to discuss the details, scope, and expected cost." />
       <ContactForm />
     </div>
   </section>
