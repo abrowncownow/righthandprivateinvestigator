@@ -18,7 +18,7 @@ test("the preview has no active intake submission path", async ({ page }) => {
   await gotoRoute(page, "/contact/");
   await expect(page.getByRole("heading", { name: /online intake is not active/i })).toBeVisible();
   await expect(page.locator("form")).toHaveCount(0);
-  await expect(page.getByText(/does not transmit or store case information/i)).toBeVisible();
+  await expect(page.getByText(/does not transmit or store inquiry information/i)).toBeVisible();
   await expect(page.locator('button[type="submit"], input[type="submit"]')).toHaveCount(0);
 });
 
@@ -28,6 +28,15 @@ test("the process-service handoff is explicit and external", async ({ page }) =>
   await expect(link).toBeVisible();
   await expect(link).toHaveAttribute("target", "_blank");
   await expect(link).toHaveAttribute("rel", /noopener/);
+});
+
+test("contact identity is current and consistent", async ({ page }) => {
+  await gotoRoute(page, "/contact/");
+  await expect(page.getByText("Cameron Stewart", { exact: true }).first()).toBeVisible();
+  const emailLinks = page.locator('a[href="mailto:righthandpi.id@gmail.com"]');
+  await expect(emailLinks.first()).toBeVisible();
+  expect(await emailLinks.count()).toBeGreaterThanOrEqual(2);
+  await expect(page.locator('a[href="mailto:righthandlp.wa@gmail.com"]')).toHaveCount(0);
 });
 
 test("root-relative links and assets retain the GitHub Pages subpath", async ({ page }) => {

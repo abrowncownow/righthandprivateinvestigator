@@ -17,7 +17,9 @@ import { pathFor } from "@/utils/urls";
       {footerNavigation.map((item) => <a href={pathFor(item.href)}>{item.label}</a>)}
     </nav>
     <div class="footer-contact">
-      <p class="footer-label">Start here</p>
+      <p class="footer-label">Contact</p>
+      <strong>{siteConfig.investigatorName}</strong>
+      <span>{siteConfig.investigatorTitle}</span>
       <a href={`tel:${siteConfig.phoneHref}`}>{siteConfig.phoneDisplay}</a>
       <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
       <a class="process-link" href={siteConfig.processServiceUrl} target="_blank" rel="noopener noreferrer">
@@ -39,6 +41,8 @@ import { pathFor } from "@/utils/urls";
   .footer-label { margin: 0 0 1.25rem; color: var(--copper-light); font-size: 0.69rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
   .footer-nav,
   .footer-contact { display: flex; flex-direction: column; align-items: flex-start; gap: 0.7rem; }
+  .footer-contact > strong { color: var(--paper-light); font-family: var(--font-display); font-size: 1.35rem; font-weight: 560; }
+  .footer-contact > span { margin-top: -0.4rem; color: var(--sage-light); font-size: 0.78rem; }
   .footer-nav a,
   .footer-contact > a { color: var(--paper); text-decoration: none; }
   .footer-nav a:hover,

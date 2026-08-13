@@ -9,59 +9,59 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import { pathFor } from "@/utils/urls";
 
 const individualFaqs = [
-  { question: "Can you prove that a partner is being unfaithful?", answer: "Right Hand can document lawful observations within an agreed scope. Those observations may or may not answer the underlying question, and we cannot guarantee what another person will do during the assignment." },
+  { question: "Can you help with a relationship concern?", answer: "Yes. Right Hand can document relevant activity and patterns through discreet, lawful fieldwork. Cameron will explain what can reasonably be investigated and design the work around your question, timing, and budget." },
   { question: "Can you access a phone, account, or private messages?", answer: "No. Right Hand does not hack accounts, obtain passwords, install spyware, intercept private communications, or use unlawful tracking or recording methods." },
-  { question: "Will the person know they are being investigated?", answer: "We do not promise anonymity or undetectability. Any fieldwork can be noticed, and some information-gathering may create records or require contact with others. We discuss material risks before work begins." },
-  { question: "What information do you need from me?", answer: "Begin with your objective, the general location, relevant dates, and why you are seeking the information. Additional information should be shared only after the assignment is accepted and an appropriate delivery method is agreed." },
-  { question: "Does contacting you make me a client?", answer: "No. A client relationship begins only when Right Hand accepts the matter in writing and any required agreement and payment arrangements are completed." }
+  { question: "Will the person know they are being investigated?", answer: "Discretion is central to the plan. Because any fieldwork carries some chance of being noticed, Cameron will explain the practical risks and available options before you authorize the work." },
+  { question: "What information do you need from me?", answer: "Start with what is happening, what you hope to understand, the general location, relevant dates, and any deadline. A brief phone call or email is enough for the first conversation." },
+  { question: "What happens after I contact you?", answer: "Cameron will listen, ask a few questions, and explain whether an investigation may help. If you decide to proceed, you will receive a clear scope, expected cost, and next steps before work begins." }
 ];
 ---
 
 <BaseLayout
   title="Private Investigation Support for Individuals | Right Hand"
-  description="Lawful, carefully planned investigative support for relationship concerns, family matters, locates, and personal due diligence in Idaho."
+  description="Discreet, personal investigative help for relationship concerns, family matters, locates, and due diligence in Idaho."
   schemaType="CollectionPage"
 >
   <Breadcrumbs current="Individuals" />
-  <PageHero eyebrow="For individuals" title="Clear answers begin with a careful plan." lead="When something personal feels uncertain, you deserve a straightforward conversation about what can lawfully be investigated, what it may cost, and what the work can—and cannot—establish." index="FIELD / IND">
+  <PageHero eyebrow="For individuals" title="When something doesn’t add up, you don’t have to sort it out alone." lead="Tell Cameron what is happening and what you need to understand. You’ll get a judgment-free conversation, practical options, and a clear next step." index="FIELD / IND">
     <div slot="actions" class="button-row">
       <a class="button button--paper" href={pathFor("/contact/?audience=individual")}>Talk through your situation <ArrowIcon /></a>
       <a class="button button--outline-light" href="#personal-services">See individual services <ArrowIcon /></a>
     </div>
     <aside slot="aside" class="hero-assurance">
-      <span>YOU CAN START HIGH LEVEL</span>
-      <p>You do not need to tell the whole story online. A short call or brief message is enough to determine whether a fuller consultation makes sense.</p>
+      <span>A CONVERSATION IS ENOUGH</span>
+      <p>You do not need investigative terminology or a perfectly organized story. A short call or email is enough to get started.</p>
     </aside>
   </PageHero>
 
   <section id="personal-services" class="section section--paper">
     <div class="shell">
-      <SectionIntro index="01" eyebrow="Personal matters" title="Sensitive questions. Straightforward boundaries." copy="The work begins with a defined concern and a realistic conversation about what lawful fact-gathering may—and may not—show." />
+      <SectionIntro index="01" eyebrow="Personal matters" title="Sensitive questions deserve clear, discreet support." copy="Right Hand helps turn uncertainty into a practical plan—without judgment, pressure, or investigative jargon." />
       <div class="matter-grid">
         <article class="matter-card matter-card--featured">
           <span>01 / RELATIONSHIPS</span>
           <h3>Relationship & infidelity concerns</h3>
-          <p>Lawful surveillance and field observations may document activity visible from public or otherwise authorized locations.</p>
-          <small>No investigator can promise what will occur, guarantee a particular answer, or ensure that fieldwork will never be noticed.</small>
-          <a class="text-link text-link--light" href={pathFor("/contact/?matter=infidelity")}>Discuss your question <ArrowIcon /></a>
+          <p>Discreet field observations can document relevant activity, patterns, and meetings so you can make decisions with better information.</p>
+          <small>The plan is tailored to your question, timing, and budget.</small>
+          <a class="text-link text-link--light" href={pathFor("/contact/?audience=individual&matter=infidelity")}>Talk through your situation <ArrowIcon /></a>
         </article>
         <article class="matter-card">
           <span>02 / FAMILY</span>
           <h3>Family & custody matters</h3>
-          <p>Fact-gathering may support questions involving conduct, routines, locations, or other defined concerns.</p>
-          <small>When litigation or a court order is involved, coordination with your attorney may be appropriate. Right Hand does not interpret court orders or give legal advice.</small>
+          <p>Fact-based documentation of relevant conduct, routines, or locations can support personal decisions and active family matters.</p>
+          <small>When a case is already underway, investigative work can be coordinated with your attorney.</small>
         </article>
         <article class="matter-card">
           <span>03 / LOCATES</span>
           <h3>Locates & missing-person matters</h3>
-          <p>Requests are reviewed for identity, relationship, purpose, and safety before any work begins.</p>
-          <small>A person’s location may be withheld or provided only through an appropriate intermediary when disclosure could create risk or facilitate harassment.</small>
+          <p>Whether you are trying to reconnect, resolve a family or estate matter, or reach someone for a legitimate reason, Right Hand can search reliable sources for current leads.</p>
+          <small>Cameron confirms the purpose and safest way to handle location information before work begins.</small>
         </article>
         <article class="matter-card">
           <span>04 / DUE DILIGENCE</span>
           <h3>Personal due diligence</h3>
-          <p>Lawful public-record and open-source research can help verify claims or identify inconsistencies before an important personal decision.</p>
-          <small>This is not a consumer report and is not offered for employment, housing, credit, insurance eligibility, or another regulated screening purpose.</small>
+          <p>Public-record and open-source research can help verify claims, identify inconsistencies, and give you more context before an important personal decision.</p>
+          <small>Research depth is matched to the decision you are facing.</small>
         </article>
       </div>
     </div>
@@ -69,13 +69,13 @@ const individualFaqs = [
 
   <section class="section section--light expectation-section">
     <div class="shell expectation-grid">
-      <SectionIntro index="02" eyebrow="What to expect" title="A process that stays grounded." copy="You should know what is being proposed, what the limitations are, and what kind of findings you may receive before work starts." />
+      <SectionIntro index="02" eyebrow="What to expect" title="A simple, straightforward process." copy="You will know what Cameron recommends, what it will cost, and what you can expect to receive before deciding whether to move forward." />
       <ol>
-        <li><span>01</span><p>Begin with a high-level, judgment-free conversation.</p></li>
-        <li><span>02</span><p>Receive a realistic explanation of options and limitations.</p></li>
-        <li><span>03</span><p>Approve a written scope before investigative work starts.</p></li>
-        <li><span>04</span><p>Get factual findings without speculation presented as fact.</p></li>
-        <li><span>05</span><p>Decide the next step with your attorney or another qualified adviser when appropriate.</p></li>
+        <li><span>01</span><p>Tell Cameron what is happening and what you want to understand.</p></li>
+        <li><span>02</span><p>Hear the practical options, timing, and expected cost.</p></li>
+        <li><span>03</span><p>Choose a clear plan that fits your situation.</p></li>
+        <li><span>04</span><p>Receive updates as the agreed work moves forward.</p></li>
+        <li><span>05</span><p>Get organized findings that help you decide what comes next.</p></li>
       </ol>
     </div>
   </section>
@@ -84,17 +84,17 @@ const individualFaqs = [
     <div class="shell sensitive-grid">
       <div class="sensitive-symbol" aria-hidden="true"><span>i</span></div>
       <div>
-        <p class="eyebrow eyebrow--light"><span>03</span> Before you contact us</p>
-        <h2>Keep the first message simple.</h2>
-        <p>Share the goal, general location, relevant dates, and any deadline. Do not send Social Security numbers, full birth dates, account credentials, financial or medical records, intimate images, evidence uploads, or tracking links unless the matter has been accepted and you receive specific instructions.</p>
-        <a class="button button--paper" href={pathFor("/contact/")}>See contact guidance <ArrowIcon /></a>
+        <p class="eyebrow eyebrow--light"><span>03</span> Start the conversation</p>
+        <h2>A few details are enough to begin.</h2>
+        <p>Share what you want to understand, the general location, relevant dates, and any deadline. To protect your privacy, wait to send sensitive records or identifying information until Cameron explains the next step.</p>
+        <a class="button button--paper" href={pathFor("/contact/?audience=individual")}>Contact Cameron <ArrowIcon /></a>
       </div>
     </div>
   </section>
 
   <section class="section section--paper">
     <div class="shell faq-grid">
-      <SectionIntro index="04" eyebrow="Questions" title="What people often ask first." copy="Investigative work has real practical and legal limits. These answers are a useful place to begin." />
+      <SectionIntro index="04" eyebrow="Questions" title="What you may want to know before calling." copy="These are common questions, but you are always welcome to talk through your specific situation with Cameron." />
       <FaqList items={individualFaqs} />
     </div>
   </section>
@@ -106,7 +106,7 @@ const individualFaqs = [
     </div>
   </section>
 
-  <CtaBand title="You can start without telling the whole story online." copy="A short phone call or high-level message is enough to determine whether a fuller consultation makes sense." primaryLabel="Talk with Right Hand" />
+  <CtaBand title="Ready to talk it through?" copy="A short, judgment-free conversation with Cameron is enough to understand your options and decide what comes next." primaryLabel="Talk with Cameron" />
 </BaseLayout>
 
 <style>

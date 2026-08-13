@@ -19,7 +19,7 @@ export const services: Service[] = [
     detail:
       "Observation from public or otherwise authorized locations, supported by detailed time-and-location notes and, when relevant and lawful, professional photography or covert video.",
     outputs: "Observation logs, factual summaries, time-and-location records, and supporting media.",
-    boundary: "No guarantee that a particular person, event, or fact will be observed.",
+    boundary: "Observation plans are tailored to the objective, timing, location, and activity that can reasonably be documented.",
     audiences: ["Organizations", "Individuals"],
     published: true
   },
@@ -30,7 +30,7 @@ export const services: Service[] = [
     detail:
       "Defined fact-gathering to support a client’s internal, legal, or claims evaluation without taking over the client’s decision-making role.",
     outputs: "Interview memoranda, chronology summaries, field notes, and cited public-source findings.",
-    boundary: "No claim adjustment, coverage analysis, reserve setting, benefit decision, or settlement negotiation.",
+    boundary: "Investigative fact-gathering supports the decisions of the client and its licensed claims professionals.",
     audiences: ["Organizations"],
     published: true
   },
@@ -41,7 +41,7 @@ export const services: Service[] = [
     detail:
       "Skip tracing means searching lawful records and other reliable sources for leads that may identify where a person lives, works, or can be contacted. Every request is screened for purpose and safety.",
     outputs: "A documented search summary and verified leads appropriate to the engagement.",
-    boundary: "Information may be withheld or passed through an intermediary when direct disclosure would be improper or unsafe.",
+    boundary: "Identity, purpose, and the safe handling of location information are confirmed before work begins.",
     audiences: ["Organizations", "Individuals"],
     published: true
   },
@@ -52,7 +52,7 @@ export const services: Service[] = [
     detail:
       "When legally permitted and relevant to the assignment, vehicle observations and license plate reader data may help develop time, location, or association leads. Access and results depend on the lawful purpose and available sources.",
     outputs: "Vehicle observation notes, relevant plate or location leads, photographs, and source documentation when available.",
-    boundary: "No promise of ownership, location, movement history, or access to restricted motor-vehicle records.",
+    boundary: "Available sources and permissible access are confirmed for each vehicle-related assignment.",
     audiences: ["Organizations", "Individuals"],
     published: true
   },
@@ -63,7 +63,7 @@ export const services: Service[] = [
     detail:
       "Research depth is matched to the question: a focused Level 1 lead check, a broader Level 2 records review, or a deeper Level 3 investigation combining sources, verification, and relationship mapping.",
     outputs: "Source-linked research summaries, verification notes, and clearly marked unresolved points.",
-    boundary: "Not offered as an FCRA consumer report or for employment, housing, credit, tenant, or insurance eligibility screening.",
+    boundary: "Personal and business due diligence only; regulated employment, housing, credit, tenant, and insurance screening is outside this service.",
     audiences: ["Organizations", "Individuals"],
     published: true
   },
@@ -74,7 +74,7 @@ export const services: Service[] = [
     detail:
       "Efforts to identify and contact potential witnesses, conduct voluntary interviews, canvass a location, or document observable scene conditions.",
     outputs: "Interview memoranda, contact logs, canvass summaries, and scene notes or images when appropriate.",
-    boundary: "No coercion, harassment, or representation of law-enforcement authority.",
+    boundary: "Interviews are voluntary and conducted without coercion, harassment, or impersonation of law-enforcement authority.",
     audiences: ["Organizations"],
     published: true
   },
@@ -85,7 +85,7 @@ export const services: Service[] = [
     detail:
       "Assignments may include locates, witness inquiries, surveillance, field documentation, chronology work, or public-source research.",
     outputs: "Engagement-specific factual reports and supporting material for counsel’s evaluation.",
-    boundary: "Right Hand does not provide legal advice. Service of legal documents is handled separately.",
+    boundary: "Investigative support is coordinated with counsel; legal advice and service of legal documents are handled separately.",
     audiences: ["Organizations"],
     published: true
   },
@@ -96,7 +96,7 @@ export const services: Service[] = [
     detail:
       "Lawful surveillance, observation, locates, or factual research related to a clearly defined relationship or family concern.",
     outputs: "Factual observations and supporting material within the agreed scope.",
-    boundary: "No guaranteed outcome, unlawful access, improper tracking, harassment, or interpretation of legal consequences.",
+    boundary: "The scope focuses on documented facts gathered through lawful, discreet methods.",
     audiences: ["Individuals"],
     published: true
   }
@@ -108,9 +108,6 @@ export const serviceExclusions = [
   "Hacking, password access, spyware, or account intrusion",
   "Unlawful GPS tracking, interception, wiretapping, or recording",
   "Harassment, intimidation, stalking, coercion, or impersonation",
-  "Claim adjustment, coverage decisions, or settlement negotiation",
-  "FCRA-regulated consumer screening",
-  "Armed protection, polygraphs, bug sweeps, or computer forensics",
-  "Work intended to evade legal process or facilitate harm",
-  "Any promise of a particular finding or outcome"
+  "Regulated screening, claim adjustment, legal advice, or other services outside the agreed investigative role",
+  "Work intended to evade legal process, facilitate harm, or serve another improper purpose"
 ];
