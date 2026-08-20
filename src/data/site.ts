@@ -18,8 +18,6 @@ export const siteConfig = {
   shortName: "Right Hand",
   descriptor: "Private investigative services for Idaho organizations and individuals.",
   tagline: "When the facts matter, put it in the Right Hands.",
-  investigatorName: "Cameron Stewart",
-  investigatorTitle: "Private Investigator",
   phoneDisplay: "(360) 791-0707",
   phoneHref: "+13607910707",
   email: "righthandpi.id@gmail.com",

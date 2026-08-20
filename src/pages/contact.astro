@@ -8,19 +8,19 @@ import { siteConfig } from "@/data/site";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Contact Right Hand Private Investigator" description="Talk with Cameron Stewart about an Idaho investigation. A brief phone call or email is enough to understand your options and next steps." schemaType="ContactPage">
+<BaseLayout title="Contact Right Hand Private Investigator" description="Talk with Right Hand about an Idaho investigation. A brief phone call or email is enough to understand your options and next steps." schemaType="ContactPage">
   <Breadcrumbs current="Contact" />
   <PageHero eyebrow="Contact a private investigator" title="Tell us what you need to find out." lead="A brief phone call or email is enough to begin. We will listen, ask a few practical questions, and explain the options, expected costs, and next steps." index="FIELD / CNT">
     <div slot="actions" class="button-row">
       <a class="button button--paper" href={`tel:${siteConfig.phoneHref}`}>Call {siteConfig.phoneDisplay} <ArrowIcon /></a>
       <a class="button button--outline-light" href={`mailto:${siteConfig.email}`}>Send an email <ArrowIcon /></a>
     </div>
-    <aside slot="aside" class="contact-aside"><span>YOUR INVESTIGATOR</span><strong>{siteConfig.investigatorName}</strong><p>{siteConfig.investigatorTitle} · Idaho-focused service</p></aside>
+    <aside slot="aside" class="contact-aside"><span>DIRECT CONTACT</span><strong>Right Hand Private Investigator</strong><p>Idaho-focused service · Call or email directly</p></aside>
   </PageHero>
 
   <section class="section section--paper contact-options">
     <div class="shell">
-      <SectionIntro index="01" eyebrow="Direct contact" title="Speak directly with your investigator." copy="Your inquiry will be handled personally, with a straightforward conversation about whether an investigation is the right next step." />
+      <SectionIntro index="01" eyebrow="Direct contact" title="Talk directly with Right Hand." copy="Your inquiry will be handled discreetly, with a straightforward conversation about whether an investigation is the right next step." />
       <div class="contact-cards">
         <a href={`tel:${siteConfig.phoneHref}`}><span>CALL</span><h3>{siteConfig.phoneDisplay}</h3><p>Talk through what is happening, what you need to understand, and any important timing.</p><strong>Call Right Hand <ArrowIcon /></strong></a>
         <a href={`mailto:${siteConfig.email}`}><span>EMAIL</span><h3>{siteConfig.email}</h3><p>Send a brief overview, the general location, and any important deadline. We will follow up about the next step.</p><strong>Email Right Hand <ArrowIcon /></strong></a>
@@ -59,9 +59,9 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
   .contact-cards strong { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--line); font-size: 0.77rem; }
   .guidance-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(3rem, 8vw, 8rem); }
   .guidance-grid h2 { margin: 0 0 2rem; }
-  .do-not-send { padding: clamp(1.5rem, 4vw, 3rem); border: 1px solid var(--copper); background: var(--paper); }
+  .do-not-send { padding: clamp(1.5rem, 4vw, 3rem); border: 1px solid var(--red); border-left-width: 0.35rem; background: var(--paper); }
   .intake-grid { display: grid; grid-template-columns: 0.62fr 1fr; align-items: start; gap: clamp(3rem, 8vw, 8rem); }
-  .emergency-band { color: var(--paper-light); background: var(--copper-dark); }
+  .emergency-band { color: var(--paper-light); background: var(--red-dark); }
   .emergency-band .shell { display: grid; grid-template-columns: 0.35fr 1fr; align-items: center; gap: 2rem; min-height: 6rem; }
   .emergency-band span { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.12em; }
   .emergency-band p { margin: 0; }

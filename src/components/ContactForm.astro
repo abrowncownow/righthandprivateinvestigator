@@ -33,7 +33,7 @@ const disabledCopy = siteConfig.previewMode
       <label><span>Email <em>Required</em></span><input name="email" type="email" autocomplete="email" required /></label>
       <label><span>Phone <em>Required</em></span><input name="phone" type="tel" autocomplete="tel" required /></label>
       <label><span>Preferred contact method</span><select name="preferred_contact"><option value="Email">Email</option><option value="Phone">Phone</option></select></label>
-      <label><span>Investigation type</span><select name="matter_type"><option>Surveillance or covert video</option><option>Skip trace or person locate</option><option>License plate or vehicle research</option><option>Background or records research</option><option>Infidelity or relationship concern</option><option>Family or custody matter</option><option>Litigation support</option><option>Claims investigation</option><option>Workplace investigation</option><option>Vendor opportunity</option><option>Other</option></select></label>
+      <label><span>Investigation type</span><select name="matter_type"><option>Surveillance or activity check</option><option>Person locate or wellness verification</option><option>Background or criminal record research</option><option>Employment background screening</option><option>Social media or open-source research</option><option>Scene or witness investigation</option><option>IME-related investigation support</option><option>Electronic surveillance detection</option><option>Infidelity or relationship concern</option><option>Family or custody matter</option><option>Litigation support</option><option>Claims investigation</option><option>Workplace investigation</option><option>Vendor opportunity</option><option>Other</option></select></label>
       <label><span>Investigation location <em>City, county, or region</em></span><input name="location" type="text" required /></label>
       <label><span>Relevant deadline <em>Optional</em></span><input name="deadline" type="date" /></label>
       <label class="full"><span>Investigation details</span><textarea name="overview" rows="6" maxlength="1200" aria-describedby="overview-help" required></textarea><small id="overview-help">Briefly describe what you need to find out, relevant dates, the general location, and any deadline. For your privacy, wait to share sensitive records or identifying information.</small></label>
@@ -76,7 +76,15 @@ const disabledCopy = siteConfig.previewMode
         vendor: "Vendor opportunity",
         family: "Family or custody matter",
         infidelity: "Infidelity or relationship concern",
-        locate: "Skip trace or person locate"
+        locate: "Person locate or wellness verification",
+        wellness: "Person locate or wellness verification",
+        background: "Background or criminal record research",
+        employment: "Employment background screening",
+        social: "Social media or open-source research",
+        witness: "Scene or witness investigation",
+        ime: "IME-related investigation support",
+        detection: "Electronic surveillance detection",
+        surveillance: "Surveillance or activity check"
       };
       const matterValue = matterValues[params.get("matter")?.toLowerCase() ?? ""];
       const matterField = form.elements.namedItem("matter_type");

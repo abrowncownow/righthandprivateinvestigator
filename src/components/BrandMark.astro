@@ -11,9 +11,7 @@ const { compact = false, inverted = false } = Astro.props;
 
 <a class:list={["brand", { compact, inverted }]} href={pathFor("/")} aria-label="Right Hand Private Investigator home">
   <span class="brand-mark" aria-hidden="true">
-    <span class="brand-mark__corner brand-mark__corner--one"></span>
-    <span class="brand-mark__corner brand-mark__corner--two"></span>
-    <span class="brand-mark__dot"></span>
+    <span>RH</span>
   </span>
   <span class="brand-copy">
     <strong>RIGHT HAND</strong>
@@ -35,53 +33,34 @@ const { compact = false, inverted = false } = Astro.props;
   .brand-mark {
     position: relative;
     display: grid;
-    width: 2.35rem;
-    height: 2.35rem;
+    width: 2.5rem;
+    height: 2.5rem;
     flex: 0 0 auto;
     place-items: center;
-    border: 1px solid currentColor;
-    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid var(--copper);
+    border-radius: 0.2rem;
+    color: var(--paper-light);
+    background: var(--pine-950);
+    box-shadow: inset 0 -0.28rem 0 var(--red);
   }
 
-  .brand-mark::before,
   .brand-mark::after {
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 0.2rem;
+    height: 100%;
     content: "";
-    background: currentColor;
-    opacity: 0.42;
+    background: var(--red);
   }
 
-  .brand-mark::before { width: 1px; height: 100%; }
-  .brand-mark::after { width: 100%; height: 1px; }
-
-  .brand-mark__corner {
-    position: absolute;
-    width: 0.55rem;
-    height: 0.55rem;
-    border-color: var(--copper);
-    border-style: solid;
-  }
-
-  .brand-mark__corner--one {
-    inset: 0.38rem auto auto 0.38rem;
-    border-width: 2px 0 0 2px;
-  }
-
-  .brand-mark__corner--two {
-    inset: auto 0.38rem 0.38rem auto;
-    border-width: 0 2px 2px 0;
-  }
-
-  .brand-mark__dot {
-    width: 0.34rem;
-    height: 0.34rem;
-    border-radius: 50%;
-    background: var(--copper);
-    box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--copper) 20%, transparent);
-  }
+  .brand-mark span { padding-bottom: 0.2rem; font-family: var(--font-display); font-size: 1rem; font-weight: 700; letter-spacing: 0.02em; }
 
   .brand-copy { display: grid; line-height: 1; }
-  .brand-copy strong { font-size: 0.89rem; letter-spacing: 0.16em; }
-  .brand-copy span { margin-top: 0.3rem; font-size: 0.57rem; letter-spacing: 0.14em; }
+  .brand-copy strong { color: var(--ink); font-size: 0.89rem; letter-spacing: 0.16em; }
+  .brand-copy span { margin-top: 0.3rem; color: var(--red-dark); font-size: 0.57rem; font-weight: 750; letter-spacing: 0.14em; }
+  .inverted .brand-copy strong { color: var(--copper-light); }
+  .inverted .brand-copy span { color: var(--paper-light); }
   .compact .brand-copy { display: none; }
 </style>
