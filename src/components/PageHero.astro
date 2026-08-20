@@ -27,9 +27,9 @@ const { eyebrow, title, lead, index = "FIELD / 01", narrow = false } = Astro.pro
 </section>
 
 <style>
-  .page-hero { position: relative; overflow: hidden; padding-block: clamp(5rem, 10vw, 8.5rem); }
+  .page-hero { position: relative; overflow: hidden; padding-block: clamp(5rem, 10vw, 8.5rem); border-top: 3px solid var(--red); }
   .page-hero > :global(.field-motif--grid) { position: absolute; inset: 0; color: var(--paper); }
-  .hero-contours { position: absolute; top: -5rem; right: -8rem; width: min(52vw, 43rem); height: 37rem; color: var(--sage); opacity: 0.11; transform: rotate(-8deg); }
+  .hero-contours { position: absolute; top: -5rem; right: -8rem; width: min(52vw, 43rem); height: 37rem; color: var(--red-light); opacity: 0.12; transform: rotate(-8deg); }
   .page-hero__inner { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.4fr); align-items: end; gap: clamp(3rem, 8vw, 8rem); }
   .page-hero__copy { max-width: 56rem; }
   .page-hero h1 { max-width: 13ch; margin: 0; color: var(--paper-light); font-size: clamp(3.2rem, 7.6vw, 7rem); line-height: 0.91; letter-spacing: -0.045em; text-wrap: balance; }

@@ -1,5 +1,7 @@
 ---
 import ArrowIcon from "@/components/ArrowIcon.astro";
+import { Image } from "astro:assets";
+import brandLogo from "@/assets/right-hand-private-investigator-logo.png";
 import CtaBand from "@/components/CtaBand.astro";
 import FaqList from "@/components/FaqList.astro";
 import FieldMotif from "@/components/FieldMotif.astro";
@@ -14,7 +16,7 @@ const homeServices = publishedServices.slice(0, 6);
 const homeFaqs = [
   {
     question: "What types of matters can Right Hand help with?",
-    answer: "Right Hand works with organizations and individuals on surveillance, field documentation, workplace and claims fact-gathering, locates, public-record research, witness and scene inquiries, litigation support, and sensitive family or relationship matters."
+    answer: "Right Hand works with organizations and individuals on surveillance and activity checks, people locates and wellness verification, background and social media research, scene and witness investigations, IME-related support, electronic surveillance detection, and sensitive personal matters."
   },
   {
     question: "What happens after I get in touch?",
@@ -51,23 +53,26 @@ const homeFaqs = [
         <p class="hero-profession">PRIVATE INVESTIGATOR</p>
         <p class="eyebrow eyebrow--light"><span>FIELD / 01</span> Private investigative services • Idaho</p>
         <h1>Evidence for your <em>next move.</em></h1>
-        <p class="home-hero__lead">Cameron Stewart provides discreet fieldwork, professional investigative technology, and clear reporting to help Idaho organizations and individuals understand the facts and move forward.</p>
+        <p class="home-hero__lead">Right Hand provides discreet fieldwork, professional investigative technology, and clear reporting to help Idaho organizations and individuals understand the facts and move forward.</p>
         <div class="button-row">
           <a class="button button--paper" href={pathFor("/contact/")}>Discuss an assignment <ArrowIcon /></a>
           <a class="button button--outline-light" href={pathFor("/services/")}>Explore services <ArrowIcon /></a>
         </div>
         <p class="hero-trust">Discreet handling <i></i> Lawful methods <i></i> Clear reporting</p>
       </div>
-      <aside class="assignment-index" aria-label="Assignment pathways">
-        <p class="assignment-index__label">Assignment index</p>
-        <a href={pathFor("/organizations/")}><span>01</span> Organizations <ArrowIcon /></a>
-        <a href={pathFor("/individuals/")}><span>02</span> Individuals <ArrowIcon /></a>
-        <a href={pathFor("/services/")}><span>03</span> Capabilities <ArrowIcon /></a>
-        <div class="assignment-index__note">
-          <span aria-hidden="true"></span>
-          <p>Idaho-focused work.<br />Jurisdiction confirmed per assignment.</p>
-        </div>
-      </aside>
+      <div class="home-hero__visual">
+        <Image
+          class="home-hero__logo"
+          src={brandLogo}
+          alt="Right Hand Private Investigator logo featuring a private investigator in a red jacket, lit in warm gold against black"
+          width={768}
+          height={768}
+          quality={88}
+          loading="eager"
+          fetchpriority="high"
+        />
+        <p><span>Idaho focused</span> Discreet work. Clear findings.</p>
+      </div>
     </div>
     <div class="shell process-ribbon">
       <a href={siteConfig.processServiceUrl} target="_blank" rel="noopener noreferrer">
@@ -82,7 +87,7 @@ const homeFaqs = [
       <ul class="technology-list">
         <li><span>01</span><div><strong>Professional cameras</strong><small>Clear photo documentation for field observations.</small></div></li>
         <li><span>02</span><div><strong>Covert video solutions</strong><small>Discreet video capture where recording is lawful.</small></div></li>
-        <li><span>03</span><div><strong>License plate reader tools</strong><small>Vehicle-related leads for verified, permissible investigations.</small></div></li>
+        <li><span>03</span><div><strong>Research technology</strong><small>Public-record and open-source research organized around the assignment.</small></div></li>
         <li><span>04</span><div><strong>Secure evidence storage</strong><small>Access-controlled cloud storage and limited retention based on the engagement.</small></div></li>
       </ul>
     </div>
@@ -199,22 +204,18 @@ const homeFaqs = [
 <style>
   .home-hero { position: relative; overflow: hidden; padding-top: clamp(5rem, 10vw, 9rem); }
   .home-hero > :global(.field-motif--grid) { position: absolute; inset: 0; color: var(--paper); }
-  .home-hero__contours { position: absolute; top: -8rem; right: -10rem; width: min(61vw, 52rem); height: 47rem; color: var(--sage); opacity: 0.13; transform: rotate(-7deg); }
-  .home-hero__inner { position: relative; display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(17rem, 0.55fr); align-items: end; gap: clamp(3rem, 8vw, 8rem); padding-bottom: clamp(4rem, 8vw, 7rem); }
+  .home-hero__contours { position: absolute; top: -8rem; right: -10rem; width: min(61vw, 52rem); height: 47rem; color: var(--red-light); opacity: 0.14; transform: rotate(-7deg); }
+  .home-hero__inner { position: relative; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(21rem, 0.8fr); align-items: center; gap: clamp(2.5rem, 6vw, 6rem); padding-bottom: clamp(4rem, 8vw, 7rem); }
   .home-hero h1 { max-width: 11ch; margin: 0; color: var(--paper-light); font-size: clamp(3.6rem, 8vw, 7.65rem); line-height: 0.87; letter-spacing: -0.055em; text-wrap: balance; }
-  .hero-profession { margin: 0 0 1rem; color: var(--paper-light); font-size: clamp(1.3rem, 2.6vw, 2.25rem); font-weight: 900; letter-spacing: 0.16em; line-height: 1; }
+  .hero-profession { margin: 0 0 1rem; color: var(--copper-light); font-size: clamp(1.3rem, 2.6vw, 2.25rem); font-weight: 900; letter-spacing: 0.16em; line-height: 1; }
   .home-hero h1 em { color: var(--copper-light); font-style: italic; font-weight: 440; }
   .home-hero__lead { max-width: 46rem; margin: 2rem 0 0; color: color-mix(in srgb, var(--paper) 83%, transparent); font-size: clamp(1.08rem, 1rem + 0.4vw, 1.35rem); }
   .hero-trust { display: flex; flex-wrap: wrap; align-items: center; gap: 0.7rem; margin: 1.8rem 0 0; color: var(--sage-light); font-size: 0.7rem; font-weight: 750; letter-spacing: 0.07em; text-transform: uppercase; }
   .hero-trust i { width: 0.22rem; height: 0.22rem; border-radius: 50%; background: var(--copper-light); }
-  .assignment-index { position: relative; border: 1px solid rgb(255 255 255 / 22%); background: rgb(5 20 17 / 38%); backdrop-filter: blur(9px); }
-  .assignment-index__label { margin: 0; padding: 1rem 1.15rem; border-bottom: 1px solid rgb(255 255 255 / 16%); color: var(--copper-light); font-size: 0.65rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
-  .assignment-index > a { display: grid; min-height: 4.2rem; grid-template-columns: 2rem 1fr auto; align-items: center; gap: 0.7rem; padding: 0.8rem 1.15rem; border-bottom: 1px solid rgb(255 255 255 / 16%); color: var(--paper-light); font-size: 0.9rem; font-weight: 700; text-decoration: none; transition: background 160ms ease; }
-  .assignment-index > a:hover { background: rgb(255 255 255 / 7%); }
-  .assignment-index > a > span:first-child { color: var(--sage-light); font-size: 0.66rem; font-weight: 800; }
-  .assignment-index__note { display: flex; gap: 0.8rem; align-items: flex-start; padding: 1.3rem 1.15rem; }
-  .assignment-index__note > span { width: 0.5rem; height: 0.5rem; margin-top: 0.42rem; border-radius: 50%; background: #7ac292; box-shadow: 0 0 0 0.28rem rgb(122 194 146 / 15%); }
-  .assignment-index__note p { margin: 0; color: var(--sage-light); font-size: 0.72rem; line-height: 1.55; }
+  .home-hero__visual { display: grid; justify-items: center; align-self: stretch; align-content: center; }
+  .home-hero__visual :global(img) { width: min(100%, 37rem); height: auto; }
+  .home-hero__visual p { display: flex; width: min(100%, 31rem); justify-content: space-between; gap: 1rem; margin: -1.6rem 0 0; padding-top: 0.8rem; border-top: 1px solid rgb(240 198 96 / 34%); color: var(--sage-light); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+  .home-hero__visual p span { color: var(--copper-light); }
   .process-ribbon { position: relative; border-top: 1px solid rgb(255 255 255 / 16%); }
   .process-ribbon a { display: flex; min-height: 4.6rem; align-items: center; justify-content: center; gap: 0.55rem; color: var(--sage-light); font-size: 0.78rem; text-align: center; text-decoration: none; }
   .process-ribbon a span { color: var(--paper-light); font-weight: 800; }
@@ -222,13 +223,13 @@ const homeFaqs = [
   .technology-grid { display: grid; grid-template-columns: 0.8fr 1fr; gap: clamp(3rem, 8vw, 8rem); }
   .technology-list { margin: 0; padding: 0; border-top: 1px solid var(--line-strong); list-style: none; }
   .technology-list li { display: grid; grid-template-columns: 2.5rem 1fr; gap: 1rem; padding: 1.25rem 0; border-bottom: 1px solid var(--line-strong); }
-  .technology-list span { color: #9c1c25; font-size: 0.68rem; font-weight: 850; }
+  .technology-list span { color: var(--red); font-size: 0.68rem; font-weight: 850; }
   .technology-list strong, .technology-list small { display: block; }
   .technology-list small { margin-top: 0.25rem; color: var(--ink-muted); }
   .pathway-card { display: flex; min-height: 30rem; flex-direction: column; justify-content: space-between; padding: clamp(1.75rem, 4vw, 3.25rem); border: 1px solid var(--line); text-decoration: none; transition: transform 180ms ease, box-shadow 180ms ease; }
   .pathway-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-raised); }
-  .pathway-card--organizations { color: var(--paper-light); background: var(--pine-900); }
-  .pathway-card--individuals { color: var(--ink); background: var(--paper-light); }
+  .pathway-card--organizations { border-top: 3px solid var(--red); color: var(--paper-light); background: var(--pine-900); }
+  .pathway-card--individuals { border-top: 3px solid var(--copper); color: var(--ink); background: var(--paper-light); }
   .pathway-number { font-size: 0.67rem; font-weight: 800; letter-spacing: 0.12em; }
   .pathway-card--organizations .pathway-number { color: var(--copper-light); }
   .pathway-card--individuals .pathway-number { color: var(--copper-dark); }
@@ -265,7 +266,7 @@ const homeFaqs = [
   .faq-grid { display: grid; grid-template-columns: 0.72fr 1fr; align-items: start; gap: clamp(3rem, 9vw, 9rem); }
   @media (max-width: 56rem) {
     .home-hero__inner { grid-template-columns: 1fr; }
-    .assignment-index { max-width: 34rem; }
+    .home-hero__visual { max-width: 38rem; justify-self: center; }
     .process-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 2rem; }
     .why-grid, .faq-grid, .technology-grid { grid-template-columns: 1fr; }
   }
@@ -284,5 +285,6 @@ const homeFaqs = [
     .vendor-index span { font-size: 4.5rem; }
     .vendor-index small { bottom: 1.2rem; }
     .process-ribbon a { align-items: flex-start; flex-direction: column; gap: 0.1rem; padding-block: 1rem; text-align: left; }
+    .home-hero__visual p { margin-top: -0.8rem; flex-direction: column; gap: 0.15rem; }
   }
 </style>

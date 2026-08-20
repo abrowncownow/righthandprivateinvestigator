@@ -5,14 +5,15 @@ import CtaBand from "@/components/CtaBand.astro";
 import PageHero from "@/components/PageHero.astro";
 import SectionIntro from "@/components/SectionIntro.astro";
 import ServiceCard from "@/components/ServiceCard.astro";
-import { publishedServices, serviceExclusions } from "@/data/services";
+import { publishedServices, serviceStandards } from "@/data/services";
+import { siteConfig } from "@/data/site";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { pathFor } from "@/utils/urls";
 ---
 
 <BaseLayout
   title="Private Investigation Services in Idaho | Right Hand"
-  description="Explore surveillance, field documentation, fact-gathering, locates, due diligence, witness inquiries, litigation support, and family matters."
+  description="Explore surveillance, activity checks, person locates, background research, witness interviews, IME support, and electronic surveillance detection."
   schemaType="CollectionPage"
 >
   <Breadcrumbs current="Services" />
@@ -36,6 +37,14 @@ import { pathFor } from "@/utils/urls";
           <div id={service.slug}><ServiceCard service={service} /></div>
         ))}
       </div>
+      <aside class="process-handoff">
+        <div>
+          <p class="eyebrow"><span>PROCESS / SERVICE</span> A connected service</p>
+          <h2>Need legal documents served?</h2>
+          <p>Process service is handled through Right Hand Professional Process Service, with coverage and ordering details available on its separate website.</p>
+        </div>
+        <a class="button" href={siteConfig.processServiceUrl} target="_blank" rel="noopener noreferrer">Visit the process-service website <ArrowIcon external /></a>
+      </aside>
     </div>
   </section>
 
@@ -43,11 +52,11 @@ import { pathFor } from "@/utils/urls";
     <div class="shell exclusions-grid">
       <div>
         <p class="eyebrow eyebrow--light"><span>02</span> Professional standards</p>
-        <h2>Good investigations protect the client and the integrity of the work.</h2>
-        <p>Right Hand accepts assignments with a legitimate purpose and uses lawful, responsible methods from planning through final reporting.</p>
+        <h2>Clear methods make stronger findings.</h2>
+        <p>Right Hand sets the purpose, scope, and reporting plan up front, then uses responsible methods that fit the assignment.</p>
       </div>
       <ul>
-        {serviceExclusions.map((item, index) => <li><span>{String(index + 1).padStart(2, "0")}</span>{item}</li>)}
+        {serviceStandards.map((item, index) => <li><span>{String(index + 1).padStart(2, "0")}</span>{item}</li>)}
       </ul>
     </div>
   </section>
@@ -68,6 +77,10 @@ import { pathFor } from "@/utils/urls";
   .service-legend div { display: flex; align-items: center; gap: 0.6rem; padding-block: 0.4rem; color: var(--paper); font-size: 0.72rem; font-weight: 750; text-transform: uppercase; }
   .service-legend div span { width: 0.55rem; height: 0.55rem; border: 1px solid var(--copper-light); transform: rotate(45deg); }
   .services-full-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin-top: 4rem; }
+  .process-handoff { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 2rem; margin-top: 1.25rem; padding: clamp(1.75rem, 4vw, 3rem); border: 1px solid var(--line-strong); background: var(--sage-light); }
+  .process-handoff h2 { margin: 0; }
+  .process-handoff p:not(.eyebrow) { max-width: 48rem; margin-bottom: 0; color: var(--ink); }
+  .process-handoff .button { white-space: nowrap; }
   .exclusions-grid { display: grid; grid-template-columns: 0.78fr 1fr; gap: clamp(3rem, 9vw, 9rem); }
   .exclusions-grid h2 { max-width: 13ch; margin: 0; color: var(--paper-light); }
   .exclusions-grid > div > p:last-child { max-width: 35rem; color: var(--sage-light); }
@@ -80,7 +93,9 @@ import { pathFor } from "@/utils/urls";
   .question-grid p:not(.eyebrow) { max-width: 50rem; color: var(--ink-muted); }
   .question-grid .button { margin-top: 1rem; }
   @media (max-width: 48rem) {
-    .services-full-grid, .exclusions-grid, .question-grid { grid-template-columns: 1fr; }
+    .services-full-grid, .process-handoff, .exclusions-grid, .question-grid { grid-template-columns: 1fr; }
+    .process-handoff { align-items: start; }
+    .process-handoff .button { justify-self: start; white-space: normal; }
     .question-mark { width: 9rem; font-size: 4rem; }
   }
 </style>

@@ -9,11 +9,11 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import { pathFor } from "@/utils/urls";
 ---
 
-<BaseLayout title="About Cameron Stewart | Right Hand Private Investigator" description="Meet Cameron Stewart and learn about Right Hand’s direct, practical approach to investigative work and reporting." schemaType="AboutPage">
+<BaseLayout title="About Right Hand Private Investigator" description="Learn about Right Hand’s direct, practical approach to Idaho investigative work, communication, and reporting." schemaType="AboutPage">
   <Breadcrumbs current="About" />
-  <PageHero eyebrow="About your private investigator" title="Professional investigation. Straight answers. A dependable handoff." lead="Cameron Stewart is the investigator behind Right Hand Private Investigator, bringing a direct, practical approach to Idaho-focused investigative work and the same commitment to dependable service associated with Right Hand Professional Process Service." index="FIELD / ABT">
+  <PageHero eyebrow="About Right Hand" title="Professional investigation. Straight answers. A dependable handoff." lead="Right Hand Private Investigator brings a direct, practical approach to Idaho-focused investigative work and the same commitment to dependable service associated with Right Hand Professional Process Service." index="FIELD / ABT">
     <div slot="actions" class="button-row"><a class="button button--paper" href={pathFor("/contact/")}>Discuss an assignment <ArrowIcon /></a></div>
-    <aside slot="aside" class="about-aside"><p>CAMERON STEWART / PRINCIPLE</p><blockquote>Be useful. Be direct. Follow the facts.</blockquote></aside>
+    <aside slot="aside" class="about-aside"><p>RIGHT HAND / PRINCIPLE</p><blockquote>Be useful. Be direct. Follow the facts.</blockquote></aside>
   </PageHero>
 
   <section class="section section--paper">
@@ -53,9 +53,9 @@ import { pathFor } from "@/utils/urls";
   .principles-list h3 { margin: 0; font-size: clamp(1.7rem, 3vw, 2.6rem); }
   .principles-list p { max-width: 46rem; margin-bottom: 0; color: var(--ink-muted); }
   .origin-grid { display: grid; grid-template-columns: 0.55fr 1fr; align-items: center; gap: clamp(3rem, 9vw, 9rem); }
-  .origin-mark { display: grid; width: min(100%, 20rem); aspect-ratio: 1; place-items: center; border: 1px solid var(--line-strong); border-radius: 50%; }
-  .origin-mark span { font-family: var(--font-display); font-size: 6rem; font-style: italic; }
-  .origin-mark small { position: absolute; margin-top: 13rem; padding: 0.3rem 0.6rem; background: var(--paper-light); font-size: 0.6rem; font-weight: 800; letter-spacing: 0.1em; }
+  .origin-mark { display: grid; width: min(100%, 20rem); aspect-ratio: 1; place-items: center; border: 1px solid var(--copper); border-radius: var(--radius-md); background: var(--pine-950); box-shadow: inset 0 -0.75rem 0 var(--red-dark); transform: rotate(-2deg); }
+  .origin-mark span { color: var(--copper-light); font-family: var(--font-display); font-size: 6rem; font-style: italic; }
+  .origin-mark small { position: absolute; margin-top: 13rem; padding: 0.3rem 0.6rem; color: var(--paper-light); background: var(--red-dark); font-size: 0.6rem; font-weight: 800; letter-spacing: 0.1em; }
   .origin-grid h2 { margin: 0; }
   .origin-grid p:not(.eyebrow) { max-width: 48rem; color: var(--ink-muted); }
   .origin-grid .button { margin-top: 1rem; }

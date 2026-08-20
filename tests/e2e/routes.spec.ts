@@ -30,9 +30,30 @@ test("the process-service handoff is explicit and external", async ({ page }) =>
   await expect(link).toHaveAttribute("rel", /noopener/);
 });
 
+test("the service catalog presents every confirmed capability", async ({ page }) => {
+  await gotoRoute(page, "/services/");
+  const serviceNames = [
+    "Surveillance & activity checks",
+    "People locates & wellness verification",
+    "Background & criminal record research",
+    "Employment background screening",
+    "Social media & open-source research",
+    "Scene, witness & claim investigations",
+    "IME-related investigation support",
+    "Electronic surveillance detection"
+  ];
+
+  for (const name of serviceNames) {
+    await expect(page.getByRole("heading", { name, exact: true })).toBeVisible();
+  }
+
+  const processLink = page.locator('.process-handoff a[href="https://righthandprofessionalprocessservice.com/"]');
+  await expect(processLink).toContainText(/process-service website/i);
+});
+
 test("contact identity is current and consistent", async ({ page }) => {
   await gotoRoute(page, "/contact/");
-  await expect(page.getByText("Cameron Stewart", { exact: true }).first()).toBeVisible();
+  await expect(page.getByText("Right Hand Private Investigator", { exact: true }).first()).toBeVisible();
   const emailLinks = page.locator('a[href="mailto:righthandpi.id@gmail.com"]');
   await expect(emailLinks.first()).toBeVisible();
   expect(await emailLinks.count()).toBeGreaterThanOrEqual(2);

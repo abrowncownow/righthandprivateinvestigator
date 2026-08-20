@@ -13,101 +13,101 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    slug: "surveillance-field-documentation",
-    title: "Surveillance, covert video & field documentation",
-    summary: "Discreet, lawful observation using professional cameras and covert video tools when appropriate.",
+    slug: "surveillance-activity-checks",
+    title: "Surveillance & activity checks",
+    summary: "Discreet mobile and fixed observation that turns activity into a clear, time-stamped record.",
     detail:
-      "Observation from public or otherwise authorized locations, supported by detailed time-and-location notes and, when relevant and lawful, professional photography or covert video.",
-    outputs: "Observation logs, factual summaries, time-and-location records, and supporting media.",
-    boundary: "Observation plans are tailored to the objective, timing, location, and activity that can reasonably be documented.",
+      "Mobile or fixed surveillance can document relevant activity, routines, locations, and interactions for claims, legal, workplace, or personal matters. The plan is built around the question, timing, and conditions in the field.",
+    outputs: "Observation logs, time-and-location records, factual summaries, and supporting photographs or video when appropriate.",
+    boundary: "The approach and coverage window are tailored to the objective, location, timing, and activity that can reasonably be observed.",
     audiences: ["Organizations", "Individuals"],
     published: true
   },
   {
-    slug: "workplace-claims-fact-gathering",
-    title: "Workplace & claims fact-gathering",
-    summary: "Interviews, canvasses, chronology work, field checks, and source research.",
+    slug: "people-locates-wellness-verification",
+    title: "People locates & wellness verification",
+    summary: "Reliable leads and discreet field verification when you need to find or check on someone.",
     detail:
-      "Defined fact-gathering to support a client’s internal, legal, or claims evaluation without taking over the client’s decision-making role.",
-    outputs: "Interview memoranda, chronology summaries, field notes, and cited public-source findings.",
-    boundary: "Investigative fact-gathering supports the decisions of the client and its licensed claims professionals.",
+      "Right Hand combines lawful records research, source development, and fieldwork to locate a person or verify that someone is alive and well. This may support legal, estate, family, claims, or other legitimate matters.",
+    outputs: "Documented search findings, verified contact or location leads, and field-check notes when an in-person verification is appropriate.",
+    boundary: "The purpose, available identifiers, and safe handling of location information are confirmed before work begins.",
+    audiences: ["Organizations", "Individuals"],
+    published: true
+  },
+  {
+    slug: "background-criminal-record-research",
+    title: "Background & criminal record research",
+    summary: "Focused public-record research that helps verify identity, history, and material claims.",
+    detail:
+      "Research may include criminal court records, civil records, business affiliations, address history, and other relevant public sources. The depth and jurisdictions are matched to the decision or case question.",
+    outputs: "Source-linked findings, identity-verification notes, relevant record details, and clearly identified gaps or unresolved points.",
+    boundary: "Records are checked against available identifiers and source limitations so likely matches are not presented as confirmed facts.",
+    audiences: ["Organizations", "Individuals"],
+    published: true
+  },
+  {
+    slug: "employment-background-screening",
+    title: "Employment background screening",
+    summary: "Organized background information for employers making informed workforce decisions.",
+    detail:
+      "Pre-employment and workforce-related screening can help authorized employers evaluate relevant records and reported history through a defined, consistent process.",
+    outputs: "Assignment-specific screening results and supporting source information for the employer’s review.",
+    boundary: "Screening is accepted only with the required authorization, permissible purpose, and compliance steps for how the information will be obtained and used.",
     audiences: ["Organizations"],
     published: true
   },
   {
-    slug: "locates-skip-tracing",
-    title: "Skip tracing & person locates",
-    summary: "Finding a person’s current contact or location information for a verified, lawful reason.",
+    slug: "social-media-open-source-research",
+    title: "Social media & open-source research",
+    summary: "Relevant online activity organized into findings you can review and act on.",
     detail:
-      "Skip tracing means searching lawful records and other reliable sources for leads that may identify where a person lives, works, or can be contacted. Every request is screened for purpose and safety.",
-    outputs: "A documented search summary and verified leads appropriate to the engagement.",
-    boundary: "Identity, purpose, and the safe handling of location information are confirmed before work begins.",
+      "Publicly available social media, websites, and other open sources can help corroborate identity, activity, affiliations, timelines, or statements connected to an investigation.",
+    outputs: "Source-linked findings, captured public content, timeline notes, and identity-corroboration details.",
+    boundary: "Research uses public or authorized access and does not bypass privacy settings, passwords, or other access controls.",
     audiences: ["Organizations", "Individuals"],
     published: true
   },
   {
-    slug: "license-plate-research",
-    title: "License plate research & vehicle leads",
-    summary: "Lawful vehicle-related research using available records and license plate reader technology.",
+    slug: "scene-witness-claim-investigations",
+    title: "Scene, witness & claim investigations",
+    summary: "Firsthand scene documentation and interviews that preserve useful facts while they are available.",
     detail:
-      "When legally permitted and relevant to the assignment, vehicle observations and license plate reader data may help develop time, location, or association leads. Access and results depend on the lawful purpose and available sources.",
-    outputs: "Vehicle observation notes, relevant plate or location leads, photographs, and source documentation when available.",
-    boundary: "Available sources and permissible access are confirmed for each vehicle-related assignment.",
+      "Assignments may include scene visits, neighborhood or business canvasses, witness identification, interviews, and written or recorded statements for legal, claims, workplace, or other fact-finding needs.",
+    outputs: "Scene notes and images, canvass and contact logs, interview memoranda, and signed or recorded witness statements when requested and authorized.",
+    boundary: "Interviews are voluntary, and the methods and deliverables are agreed before the assignment begins.",
     audiences: ["Organizations", "Individuals"],
     published: true
   },
   {
-    slug: "background-research-due-diligence",
-    title: "Background research & due diligence",
-    summary: "Layered public-record and online research, from a focused check to a deeper investigation.",
+    slug: "ime-investigation-support",
+    title: "IME-related investigation support",
+    summary: "Focused fact-gathering connected to an Independent Medical Examination and the underlying claim.",
     detail:
-      "Research depth is matched to the question: a focused Level 1 lead check, a broader Level 2 records review, or a deeper Level 3 investigation combining sources, verification, and relationship mapping.",
-    outputs: "Source-linked research summaries, verification notes, and clearly marked unresolved points.",
-    boundary: "Personal and business due diligence only; regulated employment, housing, credit, tenant, and insurance screening is outside this service.",
-    audiences: ["Organizations", "Individuals"],
-    published: true
-  },
-  {
-    slug: "witness-scene-inquiries",
-    title: "Witness & scene inquiries",
-    summary: "Voluntary interviews, local canvasses, and available scene documentation.",
-    detail:
-      "Efforts to identify and contact potential witnesses, conduct voluntary interviews, canvass a location, or document observable scene conditions.",
-    outputs: "Interview memoranda, contact logs, canvass summaries, and scene notes or images when appropriate.",
-    boundary: "Interviews are voluntary and conducted without coercion, harassment, or impersonation of law-enforcement authority.",
+      "Right Hand supports insurers, employers, third-party administrators, and counsel with factual investigative work related to an IME, such as relevant activity documentation, field inquiries, interviews, or other agreed case questions.",
+    outputs: "Engagement-specific observation records, field notes, interview summaries, supporting media, and a factual findings report.",
+    boundary: "Right Hand provides investigative support; the independent medical examination and all medical opinions are handled by qualified medical professionals.",
     audiences: ["Organizations"],
     published: true
   },
   {
-    slug: "litigation-support",
-    title: "Litigation support",
-    summary: "Investigative tasks coordinated with counsel and matched to the case question.",
+    slug: "electronic-surveillance-detection",
+    title: "Electronic surveillance detection",
+    summary: "Discreet inspection for suspected unauthorized cameras, microphones, or tracking devices.",
     detail:
-      "Assignments may include locates, witness inquiries, surveillance, field documentation, chronology work, or public-source research.",
-    outputs: "Engagement-specific factual reports and supporting material for counsel’s evaluation.",
-    boundary: "Investigative support is coordinated with counsel; legal advice and service of legal documents are handled separately.",
-    audiences: ["Organizations"],
-    published: true
-  },
-  {
-    slug: "infidelity-family-matters",
-    title: "Infidelity & family matters",
-    summary: "Carefully planned fact-gathering for sensitive personal situations.",
-    detail:
-      "Lawful surveillance, observation, locates, or factual research related to a clearly defined relationship or family concern.",
-    outputs: "Factual observations and supporting material within the agreed scope.",
-    boundary: "The scope focuses on documented facts gathered through lawful, discreet methods.",
-    audiences: ["Individuals"],
+      "A focused inspection can help identify signs of unauthorized monitoring in a residence, office, vehicle, or other location you are authorized to have inspected.",
+    outputs: "Inspection findings, documented areas or devices of concern, and practical next-step recommendations.",
+    boundary: "The inspection scope is based on the location, concern, access authorization, and equipment appropriate to the assignment.",
+    audiences: ["Organizations", "Individuals"],
     published: true
   }
 ];
 
 export const publishedServices = services.filter((service) => service.published);
 
-export const serviceExclusions = [
-  "Hacking, password access, spyware, or account intrusion",
-  "Unlawful GPS tracking, interception, wiretapping, or recording",
-  "Harassment, intimidation, stalking, coercion, or impersonation",
-  "Regulated screening, claim adjustment, legal advice, or other services outside the agreed investigative role",
-  "Work intended to evade legal process, facilitate harm, or serve another improper purpose"
+export const serviceStandards = [
+  "A legitimate, clearly defined purpose for every assignment",
+  "An agreed scope, schedule, reporting plan, and authorized access",
+  "Lawful fieldwork and research methods matched to the objective",
+  "Careful source review with observations, records, and unresolved points clearly distinguished",
+  "The appropriate consent and compliance process for employment screening and sensitive records"
 ];

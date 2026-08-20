@@ -85,5 +85,7 @@ GitHub Pages is appropriate here only as a temporary, non-indexed proof of conce
 
 - Keep first-contact messages high level; sensitive case information should not be sent through an unvetted form service.
 - Do not publish licensing, insurance, credential, or coverage claims until the exact jurisdiction and current status are verified.
+- Before accepting employment background-screening assignments, confirm the FCRA-compliant operating workflow, required client certifications and authorizations, and whether Right Hand or a screening partner is acting as the consumer reporting agency.
+- Confirm the exact IME-related tasks and electronic-surveillance-detection equipment, training, and inspection scope before making more specific capability claims.
 - The process-service link points to the separate Right Hand Professional Process Service website.
 - Review the phone number, email address, legal entity name, service area, policy dates, analytics/consent needs, and form data-retention terms before production.

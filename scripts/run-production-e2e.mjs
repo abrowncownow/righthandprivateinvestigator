@@ -58,6 +58,15 @@ try {
   if (!response?.ok()) throw new Error("Second production contact route did not load successfully");
   if (!await page.locator('input[name="audience"][value="Organization"]').isChecked()) throw new Error("Organization CTA prefill failed");
   if (await page.locator('select[name="matter_type"]').inputValue() !== "Claims investigation") throw new Error("Claims matter prefill failed");
+
+  response = await page.goto(`${origin}/contact/?audience=organization&matter=employment`, { waitUntil: "domcontentloaded" });
+  if (!response?.ok()) throw new Error("Employment screening contact route did not load successfully");
+  if (await page.locator('select[name="matter_type"]').inputValue() !== "Employment background screening") throw new Error("Employment screening prefill failed");
+
+  response = await page.goto(`${origin}/contact/?audience=individual&matter=detection`, { waitUntil: "domcontentloaded" });
+  if (!response?.ok()) throw new Error("Electronic surveillance contact route did not load successfully");
+  if (!await page.locator('input[name="audience"][value="Individual"]').isChecked()) throw new Error("Electronic surveillance audience prefill failed");
+  if (await page.locator('select[name="matter_type"]').inputValue() !== "Electronic surveillance detection") throw new Error("Electronic surveillance prefill failed");
   if (submitted) throw new Error("Production-form test made an unexpected submission");
   console.log("Production form and CTA prefill checks passed without submitting.");
 } finally {
