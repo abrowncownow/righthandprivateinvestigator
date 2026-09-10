@@ -1,6 +1,6 @@
 # Right Hand Private Investigator
 
-A fast, accessible Astro site for Right Hand Private Investigator. It is built as a static site, works at a repository subpath on GitHub Pages, and is intentionally safe by default: local and Pages builds are marked `noindex, nofollow`, and the inquiry form is disabled until an explicit production configuration is supplied.
+A fast, accessible Astro site for Right Hand Private Investigator, published at https://righthandpi.com. Local previews are marked `noindex, nofollow` and disable the inquiry form; the Pages workflow explicitly builds production at the domain root.
 
 ## Requirements
 
@@ -53,7 +53,7 @@ npm.cmd test
 # Playwright route, link, responsive, mobile-menu, and axe checks
 npm.cmd run test:e2e
 
-# Production-form rendering and CTA prefill checks (never submits)
+# Production-form and CTA checks (submission intercepted locally)
 npm.cmd run test:e2e:production
 
 # Accessibility subset only
@@ -67,19 +67,23 @@ The first browser-test run needs Chromium, installed by `npm.cmd run test:browse
 
 Static verification builds both configurations. It checks required routes, metadata, the custom 404, sitemap behavior, local asset and link targets, repository-subpath safety, and the preview's lack of an active form.
 
-## GitHub Pages preview
+## GitHub Pages production deployment
 
-The workflow in `.github/workflows/deploy-pages.yml` runs checks, builds the site with `PUBLIC_PREVIEW_MODE=true`, and deploys it on pushes to `main` or a manual run. Pull requests run checks without deploying.
+The workflow in `.github/workflows/deploy-pages.yml` runs checks and deploys on pushes to `main` or a manual run. Pull requests run checks without deploying. Production uses `PUBLIC_SITE_URL=https://righthandpi.com`, `PUBLIC_BASE_PATH=/`, and `PUBLIC_PREVIEW_MODE=false`. The explicit root base is required for the custom domain; a repository subpath breaks CSS, images, and navigation there.
 
 Before the first deployment:
 
 1. Push this project to a GitHub repository whose default branch is `main`.
 2. In **Settings → Pages**, choose **GitHub Actions** as the source.
-3. Push `main` or run **Test and deploy preview to GitHub Pages** from the Actions tab.
+3. Set the custom domain to `righthandpi.com`, then push `main` or run **Test and deploy website to GitHub Pages** from the Actions tab.
 
-The Astro configuration derives the Pages origin and repository base path from GitHub's environment, so internal navigation and assets work for both `owner.github.io/repository/` projects and root user sites.
+The Astro configuration still supports repository-subpath previews when the production overrides are absent.
 
-GitHub Pages is appropriate here only as a temporary, non-indexed proof of concept. Before launching the business site publicly, move it to a host whose terms and form-processing controls fit commercial use, set the real domain and HTTPS form endpoint, review the privacy and terms copy, and explicitly use `PUBLIC_PREVIEW_MODE=false`.
+## Contact form delivery
+
+Production posts to `https://formsubmit.co/righthandpi.id@gmail.com`. A repository or `github-pages` environment variable named `PUBLIC_FORM_ENDPOINT` can override that endpoint. The form retains FormSubmit's default CAPTCHA, uses its `_honey` spam field, and returns visitors to `https://righthandpi.com/thank-you/`. Phone and email links remain available.
+
+FormSubmit requires one-time mailbox activation. Submit the deployed form once and click the confirmation link sent to `righthandpi.id@gmail.com` (check spam as well). Then send a test inquiry and confirm receipt. Browser checks intercept submission locally and do not send email or prove inbox delivery. See [FormSubmit setup](https://formsubmit.co/) and [documentation](https://formsubmit.co/documentation).
 
 ## Content and launch safeguards
 

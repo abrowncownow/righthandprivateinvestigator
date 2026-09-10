@@ -107,6 +107,11 @@ async function verifyProduction() {
   assert.match(home, /<meta\s+name=["']robots["']\s+content=["']index, follow["']/i);
   assert.match(home, new RegExp(`<link\\s+rel=["']canonical["']\\s+href=["']${PRODUCTION_SITE_URL.replaceAll("/", "\\/")}`));
   assert.match(contact, /<form\b[^>]*data-contact-form/i, "Production contact form should render when an endpoint exists");
+  assert.doesNotMatch(home, /Proof of concept/i, "Production must not display the preview banner");
+  assert.doesNotMatch(contact, /POC \/ INTAKE|Online intake is (?:not active|currently unavailable)/i);
+  assert.match(contact, /name="_honey"/, "FormSubmit honeypot should use the supported field name");
+  assert.match(contact, /href="mailto:righthandpi.id@gmail.com"/);
+  assert.match(contact, /href="tel:\+13607910707"/);
   assert.match(thankYou, /<meta\s+name=["']robots["']\s+content=["']noindex, nofollow["']/i);
   assert.ok(
     existsSync(path.join(DIST, "sitemap-index.xml")) || existsSync(path.join(DIST, "sitemap-0.xml")),

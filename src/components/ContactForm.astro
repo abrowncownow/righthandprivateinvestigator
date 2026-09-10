@@ -21,7 +21,9 @@ const disabledCopy = siteConfig.previewMode
 {enabled ? (
   <form class="contact-form" action={siteConfig.formEndpoint} method="POST" accept-charset="UTF-8" data-contact-form>
     <input type="hidden" name="_next" value={canonicalFor("/thank-you/").href} />
-    <input class="honeypot" type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+    <input type="hidden" name="_subject" value="New consultation request | Right Hand Private Investigator" />
+    <input type="hidden" name="_template" value="table" />
+    <input class="honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
     <fieldset>
       <legend>I am contacting Right Hand as:</legend>
       <label class="choice"><input type="radio" name="audience" value="Organization" checked required /> <span>Organization</span></label>
@@ -42,6 +44,16 @@ const disabledCopy = siteConfig.previewMode
     <button class="button" type="submit">Request a consultation</button>
     <p class="form-status" aria-live="polite" data-form-status></p>
   </form>
+) : !siteConfig.previewMode ? (
+  <div class="preview-form" aria-labelledby="contact-options-heading">
+    <span>REQUEST A CONSULTATION</span>
+    <h2 id="contact-options-heading">Let’s talk about your next step.</h2>
+    <p>Call or email with a brief overview, the general location, and any important deadline. We will follow up to discuss how we can help.</p>
+    <div class="button-row">
+      <a class="button" href={`tel:${siteConfig.phoneHref}`}>Call {siteConfig.phoneDisplay}</a>
+      <a class="button" href={`mailto:${siteConfig.email}`}>Send an email</a>
+    </div>
+  </div>
 ) : (
   <div class="preview-form" aria-labelledby="preview-form-heading">
     <span>POC / INTAKE</span>
@@ -127,6 +139,7 @@ const disabledCopy = siteConfig.previewMode
   .preview-form > span { color: var(--copper-dark); font-size: 0.65rem; font-weight: 800; letter-spacing: 0.12em; }
   .preview-form h2 { max-width: 18ch; margin: 1rem 0 0; font-size: clamp(2rem, 4vw, 3.5rem); }
   .preview-form > p { max-width: 42rem; color: var(--ink-muted); }
+  .preview-form .button-row { position: relative; z-index: 1; }
   .preview-fields { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; margin-top: 2rem; }
   .preview-fields div { display: grid; min-height: 4.5rem; align-content: center; padding: 0.8rem; border: 1px solid var(--line); background: white; }
   .preview-fields .wide { grid-column: 1 / -1; min-height: 7rem; align-content: start; }

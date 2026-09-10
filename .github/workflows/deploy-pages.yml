@@ -1,4 +1,4 @@
-name: Test and deploy preview to GitHub Pages
+name: Test and deploy website to GitHub Pages
 
 on:
   push:
@@ -40,7 +40,7 @@ jobs:
       - name: Run browser and accessibility checks
         run: npm run test:e2e
 
-      - name: Verify production-form behavior without submitting
+      - name: Verify production form with locally intercepted submissions
         run: npm run test:e2e:production
 
       - name: Audit production performance and metadata
@@ -67,7 +67,7 @@ jobs:
           retention-days: 14
 
   build:
-    name: Build safe Pages preview
+    name: Build production website
     if: github.event_name != 'pull_request'
     needs: quality
     runs-on: ubuntu-latest
@@ -79,8 +79,10 @@ jobs:
     environment:
       name: github-pages
     env:
-      PUBLIC_PREVIEW_MODE: "true"
-      PUBLIC_FORM_ENDPOINT: ""
+      PUBLIC_SITE_URL: "https://righthandpi.com"
+      PUBLIC_BASE_PATH: "/"
+      PUBLIC_PREVIEW_MODE: "false"
+      PUBLIC_FORM_ENDPOINT: ${{ vars.PUBLIC_FORM_ENDPOINT || 'https://formsubmit.co/righthandpi.id@gmail.com' }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
@@ -95,7 +97,7 @@ jobs:
           package-manager: npm@latest
 
   deploy:
-    name: Deploy preview
+    name: Deploy website
     if: github.event_name != 'pull_request'
     needs: build
     runs-on: ubuntu-latest

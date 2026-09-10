@@ -21,7 +21,7 @@ export const siteConfig = {
   phoneDisplay: "(360) 791-0707",
   phoneHref: "+13607910707",
   email: "righthandpi.id@gmail.com",
-  intendedDomain: "https://righthandprivateinvestigator.com",
+  intendedDomain: "https://righthandpi.com",
   processServiceUrl: "https://righthandprofessionalprocessservice.com/",
   processServiceName: "Right Hand Professional Process Service",
   previewMode: previewValue === undefined ? true : previewValue !== "false",

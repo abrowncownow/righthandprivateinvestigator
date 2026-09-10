@@ -10,7 +10,7 @@ export function pathFor(path: string): string {
 }
 
 export function canonicalFor(path: string): URL {
-  const origin = import.meta.env.SITE || "https://righthandprivateinvestigator.com";
+  const origin = import.meta.env.SITE || "https://righthandpi.com";
   return new URL(pathFor(path), origin);
 }
 

@@ -12,7 +12,7 @@ export const PREVIEW_BASE_PATH = `${
 export const PREVIEW_SITE_URL =
   process.env.PUBLIC_SITE_URL ||
   (repositoryOwner ? `https://${repositoryOwner}.github.io` : "https://example.github.io");
-export const PRODUCTION_SITE_URL = process.env.PUBLIC_SITE_URL || "https://righthandprivateinvestigator.com";
+export const PRODUCTION_SITE_URL = process.env.PUBLIC_SITE_URL || "https://righthandpi.com";
 export const PRODUCTION_BASE_PATH = `${process.env.PUBLIC_BASE_PATH || "/"}`.replace(/\/+$/, "") || "/";
 
 export function environmentFor(mode, overrides = {}) {
