@@ -36,7 +36,7 @@ export const primaryNavigation: NavigationItem[] = [
   { label: "Individuals", href: "/individuals/" },
   { label: "Services", href: "/services/" },
   { label: "About", href: "/about/" },
-  { label: "Contact", href: "/contact/" }
+  { label: "Contact", href: "/contact/#contact-form" }
 ];
 
 export const footerNavigation: NavigationItem[] = [

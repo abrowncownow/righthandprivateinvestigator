@@ -16,6 +16,6 @@ export function canonicalFor(path: string): URL {
 
 export function isCurrentPath(currentPath: string, href: string): boolean {
   const current = currentPath.replace(/\/+$/, "") || "/";
-  const target = pathFor(href).replace(/\/+$/, "") || "/";
+  const target = pathFor(href).split(/[?#]/, 1)[0].replace(/\/+$/, "") || "/";
   return current === target || (target !== "/" && current.endsWith(target));
 }

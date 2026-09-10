@@ -8,19 +8,28 @@ import { siteConfig } from "@/data/site";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Contact Right Hand Private Investigator" description="Talk with Right Hand about an Idaho investigation. A brief phone call or email is enough to understand your options and next steps." schemaType="ContactPage">
+<BaseLayout title="Contact Right Hand Private Investigator" description="Request a consultation about an Idaho investigation. Share a brief overview through our contact form to discuss your options and next steps." schemaType="ContactPage">
   <Breadcrumbs current="Contact" />
-  <PageHero eyebrow="Contact a private investigator" title="Tell us what you need to find out." lead="A brief phone call or email is enough to begin. We will listen, ask a few practical questions, and explain the options, expected costs, and next steps." index="FIELD / CNT">
-    <div slot="actions" class="button-row">
-      <a class="button button--paper" href={`tel:${siteConfig.phoneHref}`}>Call {siteConfig.phoneDisplay} <ArrowIcon /></a>
-      <a class="button button--outline-light" href={`mailto:${siteConfig.email}`}>Send an email <ArrowIcon /></a>
-    </div>
-    <aside slot="aside" class="contact-aside"><span>DIRECT CONTACT</span><strong>Right Hand Private Investigator</strong><p>Idaho-focused service · Call or email directly</p></aside>
-  </PageHero>
+  <div class="contact-intro">
+    <PageHero eyebrow="Contact a private investigator" title="Tell us what you need to find out." lead="Start with the form below. Share a brief overview, and we will follow up to discuss your options, expected costs, and next steps." index="FIELD / CNT">
+      <div slot="actions" class="button-row">
+        <a class="button button--paper" href="#contact-form">Request a consultation <ArrowIcon /></a>
+        <a class="button button--outline-light" href="#direct-contact">Prefer to call or email? <ArrowIcon /></a>
+      </div>
+      <aside slot="aside" class="contact-aside"><span>REQUEST A CONSULTATION</span><strong>Right Hand Private Investigator</strong><p>Idaho-focused service · Discreet, practical guidance</p></aside>
+    </PageHero>
+  </div>
 
-  <section class="section section--paper contact-options">
+  <section class="section section--sage intake-section">
+    <div class="shell intake-grid">
+      <SectionIntro index="01" eyebrow="Start the conversation" title="Tell us how we can help." copy="Complete the form with a brief overview of what you need to find out. If the matter appears to be a fit, we will discuss the details, scope, and expected cost." />
+      <div id="contact-form"><ContactForm /></div>
+    </div>
+  </section>
+
+  <section id="direct-contact" class="section section--paper contact-options">
     <div class="shell">
-      <SectionIntro index="01" eyebrow="Direct contact" title="Talk directly with Right Hand." copy="Your inquiry will be handled discreetly, with a straightforward conversation about whether an investigation is the right next step." />
+      <SectionIntro index="02" eyebrow="Direct contact" title="Prefer to call or email?" copy="You can also reach us directly. Your inquiry will be handled discreetly, with a straightforward conversation about whether an investigation is the right next step." />
       <div class="contact-cards">
         <a href={`tel:${siteConfig.phoneHref}`}><span>CALL</span><h3>{siteConfig.phoneDisplay}</h3><p>Talk through what is happening, what you need to understand, and any important timing.</p><strong>Call Right Hand <ArrowIcon /></strong></a>
         <a href={`mailto:${siteConfig.email}`}><span>EMAIL</span><h3>{siteConfig.email}</h3><p>Send a brief overview, the general location, and any important deadline. We will follow up about the next step.</p><strong>Email Right Hand <ArrowIcon /></strong></a>
@@ -30,15 +39,8 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 
   <section class="section section--light guidance-section">
     <div class="shell guidance-grid">
-      <div><p class="eyebrow"><span>02</span> Helpful details</p><h2>What to include.</h2><ul class="rule-list"><li>What you want to understand or document</li><li>City, county, or region where work may be needed</li><li>Relevant dates, timing, or deadline</li><li>Whether an attorney, insurer, employer, or public organization is involved</li></ul></div>
-      <div class="do-not-send"><p class="eyebrow"><span>03</span> Protect your privacy</p><h2>Start with the essentials.</h2><p>A short overview is enough for the first conversation. Please wait to send sensitive records, identifying information, intimate material, or case files until we explain how they should be shared.</p></div>
-    </div>
-  </section>
-
-  <section class="section section--sage intake-section">
-    <div class="shell intake-grid">
-      <SectionIntro index="04" eyebrow="Start the conversation" title="Tell us how we can help." copy="Share a brief overview of what you need to find out. If the matter appears to be a fit, we will discuss the details, scope, and expected cost." />
-      <ContactForm />
+      <div><p class="eyebrow"><span>03</span> Helpful details</p><h2>What to include.</h2><ul class="rule-list"><li>What you want to understand or document</li><li>City, county, or region where work may be needed</li><li>Relevant dates, timing, or deadline</li><li>Whether an attorney, insurer, employer, or public organization is involved</li></ul></div>
+      <div class="do-not-send"><p class="eyebrow"><span>04</span> Protect your privacy</p><h2>Start with the essentials.</h2><p>A short overview is enough for the first conversation. Please wait to send sensitive records, identifying information, intimate material, or case files until we explain how they should be shared.</p></div>
     </div>
   </section>
 
@@ -46,6 +48,9 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 </BaseLayout>
 
 <style>
+  .contact-intro :global(.page-hero) { padding-block: clamp(2rem, 4vw, 3.5rem); }
+  .contact-intro :global(.page-hero h1) { max-width: 20ch; font-size: clamp(2.6rem, 5vw, 4.5rem); }
+  .intake-section { padding-top: clamp(2rem, 4vw, 3.5rem); }
   .contact-aside { padding-left: 1.5rem; border-left: 2px solid var(--copper-light); }
   .contact-aside span { color: var(--copper-light); font-size: 0.65rem; font-weight: 800; letter-spacing: 0.12em; }
   .contact-aside strong { display: block; margin-top: 1rem; font-family: var(--font-display); font-size: 1.55rem; font-weight: 520; }
