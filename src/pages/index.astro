@@ -1,7 +1,8 @@
 ---
 import ArrowIcon from "@/components/ArrowIcon.astro";
 import { Image } from "astro:assets";
-import brandLogo from "@/assets/right-hand-private-investigator-logo.png";
+import fieldworkPhoto from "@/assets/fieldwork.webp";
+import caseReviewPhoto from "@/assets/case-review.webp";
 import CtaBand from "@/components/CtaBand.astro";
 import FaqList from "@/components/FaqList.astro";
 import FieldMotif from "@/components/FieldMotif.astro";
@@ -62,12 +63,12 @@ const homeFaqs = [
       </div>
       <div class="home-hero__visual">
         <Image
-          class="home-hero__logo"
-          src={brandLogo}
-          alt="Right Hand Private Investigator logo featuring a private investigator in a red jacket, lit in warm gold against black"
-          width={768}
-          height={768}
-          quality={88}
+          src={fieldworkPhoto}
+          alt="Investigator using a camera beside a parked vehicle overlooking a mountain valley at sunset"
+          width={960}
+          widths={[480, 768, 960]}
+          sizes="(max-width: 56rem) 90vw, 42vw"
+          quality={82}
           loading="eager"
           fetchpriority="high"
         />
@@ -165,6 +166,7 @@ const homeFaqs = [
         <h2>Facts without the theater.</h2>
         <p class="why-lead">Professional investigation is not about costumes, clichés, or dramatic promises. It is disciplined fieldwork, sound judgment, clear boundaries, and information delivered in a form you can use.</p>
         <a class="text-link" href={pathFor("/about/")}>About Right Hand <ArrowIcon /></a>
+        <Image class="case-review-photo" src={caseReviewPhoto} alt="Hands reviewing printed photographs and a map beside a notebook" width={720} widths={[400, 720]} sizes="(max-width: 56rem) 90vw, 40vw" quality={82} loading="lazy" />
       </div>
       <ul class="approach-list">
         <li><span>01</span><strong>Purpose before activity</strong><small>Begin with the decision or question.</small></li>
@@ -213,8 +215,8 @@ const homeFaqs = [
   .hero-trust { display: flex; flex-wrap: wrap; align-items: center; gap: 0.7rem; margin: 1.8rem 0 0; color: var(--sage-light); font-size: 0.7rem; font-weight: 750; letter-spacing: 0.07em; text-transform: uppercase; }
   .hero-trust i { width: 0.22rem; height: 0.22rem; border-radius: 50%; background: var(--copper-light); }
   .home-hero__visual { display: grid; justify-items: center; align-self: stretch; align-content: center; }
-  .home-hero__visual :global(img) { width: min(100%, 37rem); height: auto; }
-  .home-hero__visual p { display: flex; width: min(100%, 31rem); justify-content: space-between; gap: 1rem; margin: -1.6rem 0 0; padding-top: 0.8rem; border-top: 1px solid rgb(240 198 96 / 34%); color: var(--sage-light); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+  .home-hero__visual :global(img) { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; object-position: 28% center; border: 1px solid rgb(240 198 96 / 24%); }
+  .home-hero__visual p { display: flex; width: 100%; justify-content: space-between; gap: 1rem; margin: 1rem 0 0; padding-top: 0.8rem; border-top: 1px solid rgb(240 198 96 / 34%); color: var(--sage-light); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
   .home-hero__visual p span { color: var(--copper-light); }
   .process-ribbon { position: relative; border-top: 1px solid rgb(255 255 255 / 16%); }
   .process-ribbon a { display: flex; min-height: 4.6rem; align-items: center; justify-content: center; gap: 0.55rem; color: var(--sage-light); font-size: 0.78rem; text-align: center; text-decoration: none; }
@@ -248,6 +250,7 @@ const homeFaqs = [
   .why-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(3rem, 9vw, 9rem); }
   .why-grid h2 { margin: 0; }
   .why-lead { margin: 1.5rem 0 2rem; color: var(--ink-muted); }
+  .case-review-photo { display: block; width: 100%; height: auto; margin-top: 2rem; border: 1px solid var(--line-strong); }
   .approach-list { margin: 0; padding: 0; border-top: 1px solid var(--line-strong); list-style: none; }
   .approach-list li { display: grid; grid-template-columns: 2rem minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 1rem; min-height: 5.2rem; border-bottom: 1px solid var(--line-strong); }
   .approach-list span { color: var(--copper-dark); font-size: 0.67rem; font-weight: 800; }
@@ -285,6 +288,6 @@ const homeFaqs = [
     .vendor-index span { font-size: 4.5rem; }
     .vendor-index small { bottom: 1.2rem; }
     .process-ribbon a { align-items: flex-start; flex-direction: column; gap: 0.1rem; padding-block: 1rem; text-align: left; }
-    .home-hero__visual p { margin-top: -0.8rem; flex-direction: column; gap: 0.15rem; }
+    .home-hero__visual p { flex-direction: column; gap: 0.15rem; }
   }
 </style>

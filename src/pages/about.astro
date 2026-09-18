@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import caseReviewPhoto from "@/assets/case-review.webp";
 import ArrowIcon from "@/components/ArrowIcon.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import CtaBand from "@/components/CtaBand.astro";
@@ -18,7 +20,10 @@ import { pathFor } from "@/utils/urls";
 
   <section class="section section--paper">
     <div class="shell">
-      <SectionIntro index="01" eyebrow="The approach" title="The Right Hand approach." copy="Good investigative support starts with listening carefully, choosing a practical plan, and delivering findings that are easy to understand and use." />
+      <div class="approach-intro">
+        <SectionIntro index="01" eyebrow="The approach" title="The Right Hand approach." copy="Good investigative support starts with listening carefully, choosing a practical plan, and delivering findings that are easy to understand and use." />
+        <Image src={caseReviewPhoto} alt="Printed scene photographs and maps being reviewed at a desk" width={800} widths={[400, 800]} sizes="(max-width: 48rem) 90vw, 45vw" quality={82} loading="lazy" />
+      </div>
       <div class="principles-list">
         <article><span>01</span><div><h3>Purpose before activity</h3><p>An investigation should answer a defined question, not create activity for its own sake.</p></div></article>
         <article><span>02</span><div><h3>Facts over theater</h3><p>Observations, sources, assumptions, and unresolved points should be clearly distinguished.</p></div></article>
@@ -44,6 +49,8 @@ import { pathFor } from "@/utils/urls";
 </BaseLayout>
 
 <style>
+  .approach-intro { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(2rem, 5vw, 5rem); }
+  .approach-intro :global(img) { display: block; width: 100%; height: auto; border: 1px solid var(--line-strong); }
   .about-aside { padding: 1.5rem 0 1.5rem 1.5rem; border-left: 2px solid var(--copper-light); }
   .about-aside p { margin: 0; color: var(--copper-light); font-size: 0.65rem; font-weight: 800; letter-spacing: 0.12em; }
   .about-aside blockquote { margin: 1rem 0 0; color: var(--paper-light); font-family: var(--font-display); font-size: 1.45rem; line-height: 1.15; }
@@ -64,6 +71,7 @@ import { pathFor } from "@/utils/urls";
   .belief-section blockquote { max-width: 19ch; margin: 2rem auto; color: var(--paper-light); font-family: var(--font-display); font-size: clamp(2.7rem, 6vw, 5.8rem); font-style: italic; line-height: 0.96; }
   .belief-section p { color: var(--sage-light); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
   @media (max-width: 48rem) {
+    .approach-intro { grid-template-columns: 1fr; }
     .principles-list article, .origin-grid { grid-template-columns: 1fr; }
     .principles-list > article > span { font-size: 2.5rem; }
     .origin-mark { width: 11rem; }
