@@ -21,7 +21,7 @@ interface Props {
 const {
   title,
   description,
-  imageAlt = "Investigator documenting activity outside a roadside business against an Idaho-style mountain backdrop",
+  imageAlt = "Investigator wearing a Private Investigator jacket and using binoculars above a mountain river valley",
   noindex = false,
   schemaType = "WebPage"
 } = Astro.props;
@@ -103,8 +103,8 @@ const serviceSchema = Astro.url.pathname.includes("/services/")
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical.href} />
     <meta property="og:image" content={socialImage.href} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="800" />
+    <meta property="og:image:width" content={String(socialAsset.attributes.width)} />
+    <meta property="og:image:height" content={String(socialAsset.attributes.height)} />
     <meta property="og:image:alt" content={imageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
